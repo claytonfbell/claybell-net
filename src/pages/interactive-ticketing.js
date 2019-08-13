@@ -71,6 +71,8 @@ const useStyles = makeStyles(theme => ({
   logo: {
     filter: `grayscale(100%) brightness(70%)`,
     opacity: "0.6",
+    width: `100%`,
+    height: `auto`,
   },
 }))
 
