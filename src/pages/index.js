@@ -21,6 +21,7 @@ import InteractiveTicketing from "../images/it-logo.png"
 import ElectricArrow from "../images/ea-logo.png"
 import { useTimeout } from "react-use"
 import Contact from "../components/contact"
+import Link from "../components/link"
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -190,11 +191,16 @@ const IndexPage = () => {
                     and I'm the sole tech administrator.
                   </Typography>
                 </CardContent>
-                {/* <CardActions>
-                <Button size="small" color="primary">
-                  More Info
-                </Button>
-              </CardActions> */}
+                <CardActions>
+                  <Button
+                    component={Link}
+                    to={`/interactive-ticketing`}
+                    size="small"
+                    color="primary"
+                  >
+                    More Info
+                  </Button>
+                </CardActions>
               </Card>
             </Grid>
           </Fade>
@@ -231,10 +237,10 @@ const IndexPage = () => {
                   </Typography>
                 </CardContent>
                 {/* <CardActions>
-                <Button size="small" color="primary">
-                  More Info
-                </Button>
-              </CardActions> */}
+                  <Button size="small" color="primary">
+                    More Info
+                  </Button>
+                </CardActions> */}
               </Card>
             </Grid>
           </Fade>
