@@ -80,9 +80,8 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 const IndexPage = () => {
   const classes = useStyles()
-  const showFirst = useTimeout(200)
-  const showSecond = useTimeout(250)
-  const showThird = useTimeout(300)
+
+  const gridItem = { xs: 2, sm: 2, md: 1, lg: 1 }
 
   return (
     <Template>
@@ -135,35 +134,35 @@ const IndexPage = () => {
 
       <Container className={classes.cardGrid} maxWidth="md">
         <Grid container spacing={4} justify="center">
-          <Grid item xs={12} sm={6} md={4} lg={1}>
+          <Grid item {...gridItem}>
             <img src={angularLogo} className={classes.logo} alt={`Angular`} />
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={1}>
+          <Grid item {...gridItem}>
             <img src={reactLogo} className={classes.logo} alt={`React`} />
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={1}>
+          <Grid item {...gridItem}>
             <img
               src={typescriptLogo}
               className={classes.logo}
               alt={`Typescript`}
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={1}>
+          <Grid item {...gridItem}>
             <img src={phpLogo} className={classes.logo} alt={`PHP`} />
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={1}>
+          <Grid item {...gridItem}>
             <img src={mysqlLogo} className={classes.logo} alt={`MySQL`} />
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={1}>
+          <Grid item {...gridItem}>
             <img src={nginxLogo} className={classes.logo} alt={`Nginx`} />
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={1}>
+          <Grid item {...gridItem}>
             <img src={ubuntuLogo} className={classes.logo} alt={`Ubuntu`} />
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={1}>
+          <Grid item {...gridItem}>
             <img src={dotnetLogo} className={classes.logo} alt={`Dot Net`} />
           </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={1}>
+          <Grid item {...gridItem}>
             <img src={appleLogo} className={classes.logo} alt={`iOS`} />
           </Grid>
         </Grid>
