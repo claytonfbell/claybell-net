@@ -63,9 +63,9 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 const IndexPage = () => {
   const classes = useStyles()
-  const showFirst = useTimeout(200)
-  const showSecond = useTimeout(250)
-  const showThird = useTimeout(300)
+  const showFirst = useTimeout(0)
+  const showSecond = useTimeout(50)
+  const showThird = useTimeout(100)
 
   return (
     <Template>
