@@ -82,6 +82,8 @@ const useStyles = makeStyles(theme => ({
   tbw: {
     border: "1px solid #ccc",
     borderRadius: "8px",
+    width: `100%`,
+    height: `auto`,
   },
 }))
 
@@ -177,7 +179,7 @@ const IndexPage = () => {
         </Grid>
       </Container>
 
-      <Container maxWidth="md">
+      <Container maxWidth="sm">
         <Grid container>
           <Grid item>
             <img
@@ -187,10 +189,10 @@ const IndexPage = () => {
             />
           </Grid>
           <Grid item>
-            <img src={mobileSlide} alt={`Mobile`} />
+            <img className={classes.tbw} src={mobileSlide} alt={`Mobile`} />
           </Grid>
           <Grid item>
-            <img src={reportsSlide} alt={`Manager`} />
+            <img className={classes.tbw} src={reportsSlide} alt={`Manager`} />
           </Grid>
         </Grid>
       </Container>
