@@ -34,6 +34,11 @@ import typescriptLogo from "../images/tech/typescript.png"
 import dotnetLogo from "../images/tech/dotnet.png"
 import appleLogo from "../images/tech/apple.png"
 
+// slides
+import tbwSlide from "../images/interactive-ticketing/tbw.jpg"
+import mobileSlide from "../images/interactive-ticketing/mobile.png"
+import reportsSlide from "../images/interactive-ticketing/reports.png"
+
 const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2),
@@ -73,6 +78,10 @@ const useStyles = makeStyles(theme => ({
     opacity: "0.6",
     width: `100%`,
     height: `auto`,
+  },
+  tbw: {
+    border: "1px solid #ccc",
+    borderRadius: "8px",
   },
 }))
 
@@ -164,6 +173,24 @@ const IndexPage = () => {
           </Grid>
           <Grid item {...gridItem}>
             <img src={appleLogo} className={classes.logo} alt={`iOS`} />
+          </Grid>
+        </Grid>
+      </Container>
+
+      <Container maxWidth="md">
+        <Grid container>
+          <Grid item>
+            <img
+              className={classes.tbw}
+              src={tbwSlide}
+              alt={`Purchase Interface`}
+            />
+          </Grid>
+          <Grid item>
+            <img src={mobileSlide} alt={`Mobile`} />
+          </Grid>
+          <Grid item>
+            <img src={reportsSlide} alt={`Manager`} />
           </Grid>
         </Grid>
       </Container>
