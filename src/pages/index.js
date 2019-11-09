@@ -132,7 +132,7 @@ const IndexPage = () => {
                     Etix
                   </Typography>
                   <Typography variant="caption" color="primary">
-                    Software Engineer
+                    Software Developer/Engineer
                   </Typography>
                   <br />
                   <Typography
@@ -174,7 +174,7 @@ const IndexPage = () => {
                   </Typography>
                   <Typography variant="caption" color="primary">
                     {" "}
-                    Engineer, Architect, and Administrator
+                    Developer/Engineer and Administrator
                   </Typography>
                   <br />
                   <Typography
@@ -187,8 +187,8 @@ const IndexPage = () => {
                     2005 to Present
                   </Typography>
                   <Typography>
-                    Architected and developed the Interactive Ticketing platform
-                    and I'm the sole tech administrator.
+                    Developed the Interactive Ticketing platform and I'm the
+                    sole tech administrator.
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -219,7 +219,7 @@ const IndexPage = () => {
                   </Typography>
                   <Typography variant="caption" color="primary">
                     {" "}
-                    Engineer, Architect, and Administrator
+                    Developer/Engineer and Administrator
                   </Typography>
                   <br />
                   <Typography
@@ -232,8 +232,7 @@ const IndexPage = () => {
                     1999 to 2005
                   </Typography>
                   <Typography>
-                    Architected and developed the Live Pages CMS and E-Commerce
-                    platform.
+                    Developed the Live Pages CMS and E-Commerce platform.
                   </Typography>
                 </CardContent>
                 {/* <CardActions>

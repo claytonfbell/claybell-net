@@ -127,7 +127,7 @@ const IndexPage = () => {
               color="textSecondary"
               paragraph
             >
-              Engineer, Architect, and Administrator
+              Developer/Engineer and Administrator
             </Typography>
             <Typography
               variant="h5"

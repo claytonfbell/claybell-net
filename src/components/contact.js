@@ -9,6 +9,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon"
 import ListItemText from "@material-ui/core/ListItemText"
 import MailIcon from "@material-ui/icons/Mail"
 import PhoneIcon from "@material-ui/icons/Phone"
+import { Typography } from "@material-ui/core"
 
 const useStyles = makeStyles({
   list: {
@@ -55,6 +56,12 @@ export default function Contact() {
             <MailIcon />
           </ListItemIcon>
           <ListItemText primary={`claytonfbell@gmail.com`} />
+        </ListItem>
+        <ListItem>
+          <ListItemText>
+            I have worked remotely for many years
+            <br /> and reside in Portland Oregon home.
+          </ListItemText>
         </ListItem>
       </List>
     </div>
