@@ -1,11 +1,10 @@
-import React from "react"
 import CssBaseline from "@material-ui/core/CssBaseline"
-import Typography from "@material-ui/core/Typography"
-import { makeStyles } from "@material-ui/core/styles"
 import Link from "@material-ui/core/Link"
+import { makeStyles } from "@material-ui/core/styles"
+import Typography from "@material-ui/core/Typography"
 import { ThemeProvider } from "@material-ui/styles"
+import React from "react"
 import theme from "../theme"
-import GithubCorner from "react-github-corner"
 
 function Copyright() {
   return (
@@ -76,13 +75,6 @@ export default function Template({ children }) {
     <ThemeIt>
       <React.Fragment>
         <CssBaseline />
-
-        <GithubCorner
-          bannerColor={`#10365d`}
-          className={classes.github}
-          href="https://github.com/claytonfbell/claybell-net"
-        />
-
         <main>{children}</main>
       </React.Fragment>
     </ThemeIt>

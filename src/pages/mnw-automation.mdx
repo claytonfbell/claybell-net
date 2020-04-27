@@ -1,0 +1,47 @@
+# New Electron App
+
+As a side project I've built an Electon App for [Montessori Northwest](https://montessori-nw.org) training center to help them sync data between platforms.
+
+Checkout the source code here: <https://github.com/claytonfbell/mnw-automation>
+
+![Installer](../images/mnw-automation/install2.png)
+
+## What It Does
+
+- Queries Populi's REST API to lookup updated contacts from the last synchronization.
+- Updates the contacts in MailChimp's API.
+
+### Snippet
+
+```js
+const response = await axios.default
+  .post(
+    `https://montessorinorthwest.populiweb.com/api/`,
+    querystring.stringify({
+      task: "getUpdatedPeople",
+      start_time: moment(state.startTime).format("YYYY-MM-DD HH:mm:ss"),
+      offset,
+    }),
+    {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: state.populiApiKey,
+      },
+    }
+  )
+  .then(resp => {
+    return xml2json(resp.data) as Promise<GetUpdatedPeopleResponse>
+  })
+```
+
+## Technologies
+
+- Electron
+- TypeScript
+- React
+- Material UI
+- Populi API
+- MailChimp API
+
+![Screen 1](../images/mnw-automation/screen1.png)
+![Screen 2](../images/mnw-automation/screen2.png)
