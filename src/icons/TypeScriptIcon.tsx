@@ -16,5 +16,3 @@ export default function TypeScriptIcon() {
     </SvgIcon>
   )
 }
-
-// <a target="_blank" href="https://icons8.com/icons/set/typescript">TypeScript icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>

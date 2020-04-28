@@ -80,7 +80,9 @@ const IndexPage = () => {
             </Typography>
             <Box textAlign="center">
               <Gravatar
-                style={{ borderRadius: `50%` }}
+                style={{
+                  borderRadius: `50%`,
+                }}
                 size={128}
                 email={`claytonfbell@gmail.com`}
               />

@@ -7,7 +7,7 @@ import { TechnologyName } from "./technologies"
 export type RoutePath =
   | "/"
   | "/mnw-automation"
-  | "/claybell-net"
+  | "/this-website"
   | "/interactiveticketing"
 
 interface Page {
@@ -37,9 +37,9 @@ export const pages: Page[] = [
     stack: ["PHP", "MySQL", "Angular", "TypeScript"],
   },
   {
-    route: "/claybell-net",
+    route: "/this-website",
     displayOnHome: true,
-    title: "claybell.net",
+    title: "This Website",
     image: cbFiles,
     description: `This blog / portfolio site.`,
     stack: ["Gatsby", "React", "mdx", "TypeScript", "Material UI", "Netlify"],
