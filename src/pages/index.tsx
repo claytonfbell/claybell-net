@@ -15,9 +15,9 @@ import { Link } from "gatsby"
 import React from "react"
 import Gravatar from "react-gravatar"
 import { useTimeout } from "react-use"
-import Contact from "../components/Contact"
+import Contact from "../components/ContactDrawer"
 import HomeTemplate from "../components/HomeTemplate"
-import SEO from "../components/SEO"
+import SEOComponent from "../components/SEOComponent"
 import logo from "../images/logo.svg"
 import { pages } from "../pages"
 
@@ -67,20 +67,15 @@ const IndexPage = () => {
 
   return (
     <HomeTemplate>
-      <SEO title="Clayton Bell" />
+      <SEOComponent title="Clayton Bell" />
 
       <div className={classes.heroContent}>
         <Fade in={true}>
           <Container maxWidth="sm">
             <Fade in={showFirst}>
-              <img src={logo} />
+              <img src={logo} alt="Clayton Bell" />
             </Fade>
-            <Typography
-              variant="h5"
-              align="center"
-              color="textSecondary"
-              paragraph
-            >
+            <Typography variant="h5" align="center" paragraph>
               Experienced, Productive, Creative
             </Typography>
             <Box textAlign="center">
@@ -108,12 +103,14 @@ const IndexPage = () => {
               .map(page => (
                 <Grid item xs={12} sm={6} md={4} key={page.route}>
                   <Card className={classes.card}>
-                    <CardMedia
-                      style={{ backgroundColor: "#ddd" }}
-                      className={classes.cardMedia}
-                      image={page.image}
-                      title="Interactive Ticketing"
-                    />
+                    <Link to={page.route}>
+                      <CardMedia
+                        style={{ backgroundColor: "#ddd" }}
+                        className={classes.cardMedia}
+                        image={page.image}
+                        title={page.title}
+                      />
+                    </Link>
                     <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2">
                         {page.title}
@@ -122,12 +119,7 @@ const IndexPage = () => {
                       <Typography>{page.description}</Typography>
                     </CardContent>
                     <CardActions>
-                      <Button
-                        component={Link}
-                        to={page.route}
-                        size="small"
-                        color="primary"
-                      >
+                      <Button component={Link} to={page.route}>
                         More Info
                       </Button>
                     </CardActions>

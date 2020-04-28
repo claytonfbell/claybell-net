@@ -29,7 +29,7 @@ import logoOnBlue from "../images/logo.svg"
 import { pages, RoutePath } from "../pages"
 import { technologies, Technology } from "../technologies"
 import LayoutBase from "./LayoutBase"
-import SEO from "./SEO"
+import SEOComponent from "./SEOComponent"
 import Spacer from "./Spacer"
 
 const h1 = props => (
@@ -135,15 +135,16 @@ export default function Layout(props: {
 
   const currentTechnologies: Technology[] =
     (currentPage &&
-      currentPage.technologies &&
-      currentPage.technologies.map(tech =>
-        technologies.find(x => x.name === tech)
-      )) ||
+      currentPage.stack &&
+      currentPage.stack.map(tech => technologies.find(x => x.name === tech))) ||
     []
 
   return (
     <LayoutBase>
-      <SEO title={currentPage.title} description={currentPage.description} />
+      <SEOComponent
+        title={currentPage.title}
+        description={currentPage.description}
+      />
       <div className={classes.root}>
         <AppBar position="absolute" className={classes.appBar} color="default">
           <Toolbar>
@@ -160,7 +161,7 @@ export default function Layout(props: {
             )}
             <Link to="/">
               <img
-                style={{ height: 64, marginBottom: 0 }}
+                style={{ height: 48, marginBottom: 0 }}
                 src={logoOnBlue}
                 alt="Clayton Bell"
               />

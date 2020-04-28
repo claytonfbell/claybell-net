@@ -1,9 +1,14 @@
 import React from "react"
 import cbFiles from "./images/claybell-net/files.png"
+import itLogo from "./images/it-logo.png"
 import mnwAutomation from "./images/mnw-automation/mnw-dock.png"
 import { TechnologyName } from "./technologies"
 
-export type RoutePath = "/" | "/mnw-automation" | "/claybell-net"
+export type RoutePath =
+  | "/"
+  | "/mnw-automation"
+  | "/claybell-net"
+  | "/interactiveticketing"
 
 interface Page {
   route: RoutePath
@@ -11,7 +16,7 @@ interface Page {
   displayOnHome?: boolean
   description?: string
   image?: string
-  technologies?: TechnologyName[]
+  stack?: TechnologyName[]
 }
 
 export const pages: Page[] = [
@@ -21,7 +26,15 @@ export const pages: Page[] = [
     title: "New Electron App",
     image: mnwAutomation,
     description: `An Electron side-project application for Montessori Northwest.`,
-    technologies: ["Electron", "React", "TypeScript", "Material UI"],
+    stack: ["Electron", "React", "TypeScript", "Material UI"],
+  },
+  {
+    route: "/interactiveticketing",
+    displayOnHome: true,
+    title: "Interactive Ticketing",
+    image: itLogo,
+    description: `The primary software engineer that developed and maintained the platform from its founding.`,
+    stack: ["PHP", "MySQL", "Angular", "TypeScript"],
   },
   {
     route: "/claybell-net",
@@ -29,7 +42,7 @@ export const pages: Page[] = [
     title: "claybell.net",
     image: cbFiles,
     description: `This blog / portfolio site.`,
-    technologies: ["Gatsby", "React", "TypeScript", "Material UI", "Netlify"],
+    stack: ["Gatsby", "React", "mdx", "TypeScript", "Material UI", "Netlify"],
   },
 ]
 

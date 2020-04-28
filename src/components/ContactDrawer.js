@@ -67,11 +67,7 @@ export default function Contact() {
 
   return (
     <div>
-      <Button
-        variant="outlined"
-        color="primary"
-        onClick={toggleDrawer("left", true)}
-      >
+      <Button variant="outlined" onClick={toggleDrawer("left", true)}>
         Contact Info
       </Button>
       <Drawer open={state.left} onClose={toggleDrawer("left", false)}>
