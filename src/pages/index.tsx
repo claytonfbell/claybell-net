@@ -16,7 +16,7 @@ import React from "react"
 import Gravatar from "react-gravatar"
 import { useTimeout } from "react-use"
 import Contact from "../components/contact"
-import Template from "../components/HomeTemplate"
+import HomeTemplate from "../components/HomeTemplate"
 import SEO from "../components/seo"
 import logo from "../images/logo.svg"
 import { pages } from "../pages"
@@ -66,7 +66,7 @@ const IndexPage = () => {
   const showThird = useTimeout(250)
 
   return (
-    <Template>
+    <HomeTemplate>
       <SEO title="Clayton Bell" />
 
       <div className={classes.heroContent}>
@@ -137,7 +137,7 @@ const IndexPage = () => {
           </Grid>
         </Fade>
       </Container>
-    </Template>
+    </HomeTemplate>
   )
 }
 
