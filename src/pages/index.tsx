@@ -107,10 +107,9 @@ const IndexPage = () => {
                       <CardMedia
                         style={{ backgroundColor: "#ddd" }}
                         className={classes.cardMedia}
+                        image={page.image}
                         title={page.title}
-                      >
-                        <img src={page.image} />
-                      </CardMedia>
+                      />
                     </Link>
                     <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2">
