@@ -31,7 +31,7 @@ import { technologies, Technology } from "../technologies"
 import LayoutBase from "./LayoutBase"
 import SEOComponent from "./SEOComponent"
 import Spacer from "./Spacer"
-import useStoredState from "./useStoredState"
+import useShowPrivate from "./useShowPrivate"
 
 const h1 = props => (
   <Box style={{ marginBottom: 12 }}>
@@ -131,7 +131,7 @@ export default function Layout(props: {
     setOpen(false)
   }
 
-  const [showPrivate] = useStoredState("showPrivate", false)
+  const showPrivate = useShowPrivate()
 
   const currentPage = pages.find(
     x => x.route === props.location.pathname.replace(/\/$/, "")
@@ -190,7 +190,7 @@ export default function Layout(props: {
           </Hidden>
           <List>
             {pages
-              .filter(x => !x.isPrivate || showPrivate === true)
+              .filter(x => !x.isPrivate || showPrivate === "yes")
               .map(page => (
                 <ListItem
                   button

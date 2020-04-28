@@ -18,7 +18,7 @@ import { useTimeout } from "react-use"
 import Contact from "../components/ContactDrawer"
 import HomeTemplate from "../components/HomeTemplate"
 import SEOComponent from "../components/SEOComponent"
-import useStoredState from "../components/useStoredState"
+import useShowPrivate from "../components/useShowPrivate"
 import logo from "../images/logo.svg"
 import { pages } from "../pages"
 
@@ -62,7 +62,7 @@ const IndexPage = () => {
   const classes = useStyles()
   const showFirst = useTimeout(50)
   const showThird = useTimeout(250)
-  const [showPrivate] = useStoredState("showPrivate", false)
+  const showPrivate = useShowPrivate()
 
   return (
     <HomeTemplate>
@@ -101,7 +101,7 @@ const IndexPage = () => {
           <Grid container spacing={4}>
             {pages
               .filter(x => x.displayOnHome)
-              .filter(x => !x.isPrivate || showPrivate === true)
+              .filter(x => !x.isPrivate || showPrivate === "yes")
               .map(page => (
                 <Grid item xs={12} sm={6} md={4} key={page.route}>
                   <Card className={classes.card}>
