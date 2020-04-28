@@ -3,6 +3,8 @@ import {
   Box,
   Container,
   Drawer,
+  Grid,
+  Hidden,
   IconButton,
   List,
   ListItem,
@@ -11,6 +13,7 @@ import {
   Paper,
   Table,
   Toolbar,
+  Tooltip,
   Typography,
   useMediaQuery,
   useTheme,
@@ -24,7 +27,9 @@ import SyntaxHighlighter from "react-syntax-highlighter"
 import { vs2015 } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import logoOnBlue from "../images/logo.svg"
 import { pages, RoutePath } from "../pages"
+import { technologies, Technology } from "../technologies"
 import LayoutBase from "./LayoutBase"
+import Spacer from "./Spacer"
 
 const h1 = props => (
   <Box style={{ marginBottom: 12 }}>
@@ -58,9 +63,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
   },
-  toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
-  },
+
   toolbarIcon: {
     display: "flex",
     alignItems: "center",
@@ -129,11 +132,23 @@ export default function Layout(props: {
     setOpen(false)
   }
 
+  const currentPage = pages.find(
+    x => x.route === props.location.pathname.replace(/\/$/, "")
+  )
+
+  const currentTechnologies: Technology[] =
+    (currentPage &&
+      currentPage.technologies &&
+      currentPage.technologies.map(tech =>
+        technologies.find(x => x.name === tech)
+      )) ||
+    []
+
   return (
     <LayoutBase>
       <div className={classes.root}>
         <AppBar position="absolute" className={classes.appBar} color="default">
-          <Toolbar className={classes.toolbar}>
+          <Toolbar>
             {isSm && (
               <IconButton
                 edge="start"
@@ -145,11 +160,13 @@ export default function Layout(props: {
                 <MenuIcon />
               </IconButton>
             )}
-            <img
-              style={{ maxHeight: 48 }}
-              src={logoOnBlue}
-              alt="Clayton Bell"
-            />
+            <Link to="/">
+              <img
+                style={{ height: 64, marginBottom: 0 }}
+                src={logoOnBlue}
+                alt="Clayton Bell"
+              />
+            </Link>
           </Toolbar>
         </AppBar>
 
@@ -165,13 +182,16 @@ export default function Layout(props: {
               <ChevronLeftIcon />
             </IconButton>
           </div>
+          <Hidden smDown>
+            <Spacer />
+          </Hidden>
           <List>
             {pages.map(page => (
               <ListItem
                 button
                 component={Link}
                 to={page.route}
-                selected={props.location.pathname === page.route}
+                selected={currentPage && page.route == currentPage.route}
               >
                 <ListItemText primary={page.title} />
               </ListItem>
@@ -181,21 +201,37 @@ export default function Layout(props: {
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
           <Container maxWidth="lg" className={classes.container}>
-            <Paper style={{ padding: 24, marginTop: 24, minHeight: 2000 }}>
-              <Typography component="div">
-                <MDXProvider
-                  components={{
-                    h1,
-                    h2,
-                    h3,
-                    code,
-                    table,
-                  }}
-                >
-                  {props.children}
-                </MDXProvider>
-              </Typography>
-            </Paper>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={11}>
+                <Paper style={{ padding: 24 }}>
+                  <Typography component="div">
+                    <MDXProvider
+                      components={{
+                        h1,
+                        h2,
+                        h3,
+                        code,
+                        table,
+                      }}
+                    >
+                      {props.children}
+                    </MDXProvider>
+                  </Typography>
+                </Paper>
+              </Grid>
+              <Grid item xs={12} sm={1} style={{ textAlign: "center" }}>
+                <Hidden smDown>
+                  <Typography variant="caption">Stack</Typography>
+                </Hidden>
+                {currentTechnologies.map(t => (
+                  <Tooltip arrow title={t.name} key={t.name}>
+                    <IconButton href={t.url} target={t.name}>
+                      {t.icon}
+                    </IconButton>
+                  </Tooltip>
+                ))}
+              </Grid>
+            </Grid>
           </Container>
         </main>
       </div>

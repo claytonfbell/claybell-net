@@ -1,5 +1,9 @@
+# claybell.net
+
+This site is produced with Gatsby framework and deployed to Netlify.
+
+```js
 import React from "react"
-import cbFiles from "./images/claybell-net/files.png"
 import mnwAutomation from "./images/mnw-automation/mnw-dock.png"
 import { TechnologyName } from "./technologies"
 
@@ -16,6 +20,10 @@ interface Page {
 
 export const pages: Page[] = [
   {
+    route: "/",
+    title: "Home",
+  },
+  {
     route: "/mnw-automation",
     displayOnHome: true,
     title: "New Electron App",
@@ -27,10 +35,12 @@ export const pages: Page[] = [
     route: "/claybell-net",
     displayOnHome: true,
     title: "claybell.net",
-    image: cbFiles,
+    image: mnwAutomation,
     description: `This blog / portfolio site.`,
     technologies: ["Gatsby", "React", "TypeScript", "Material UI", "Netlify"],
   },
 ]
 
 export default () => <></>
+
+```
