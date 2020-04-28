@@ -119,7 +119,8 @@ export default function Layout(props: {
   const classes = useStyles()
 
   const theme = useTheme()
-  const isSm = useMediaQuery(theme.breakpoints.down("sm"))
+  const isSmDown = useMediaQuery(theme.breakpoints.down("sm"))
+  const isLgUp = useMediaQuery(theme.breakpoints.up("lg"))
 
   const [open, setOpen] = React.useState(false)
   const handleDrawerOpen = () => {
@@ -148,7 +149,7 @@ export default function Layout(props: {
       <div className={classes.root}>
         <AppBar position="absolute" className={classes.appBar} color="default">
           <Toolbar>
-            {isSm && (
+            {isSmDown && (
               <IconButton
                 edge="start"
                 color="inherit"
@@ -170,11 +171,11 @@ export default function Layout(props: {
         </AppBar>
 
         <Drawer
-          variant={!isSm ? "permanent" : "temporary"}
+          variant={!isSmDown ? "permanent" : "temporary"}
           classes={{
             paper: classes.drawerPaper,
           }}
-          open={!isSm || open}
+          open={!isSmDown || open}
         >
           <div className={classes.toolbarIcon}>
             <IconButton onClick={handleDrawerClose}>
@@ -202,7 +203,10 @@ export default function Layout(props: {
           <Container maxWidth="lg" className={classes.container}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={11}>
-                <Paper style={{ padding: 24 }}>
+                <Paper
+                  style={{ padding: isLgUp ? 64 : 24 }}
+                  elevation={isLgUp ? 3 : undefined}
+                >
                   <Typography component="div">
                     <MDXProvider
                       components={{
