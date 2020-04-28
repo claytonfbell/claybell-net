@@ -55,7 +55,7 @@ export const pages: Page[] = [
     title: "TutuTix Dashboard",
     image: tututix,
     description: `Helping build a new dashboard manager for the TutuTix platform.`,
-    stack: ["Java", "Oracle DB", "React", "TypeScript"],
+    stack: ["Java", "Oracle DB", "AWS", "React", "TypeScript"],
   },
   {
     route: "/this-website",

@@ -1,5 +1,6 @@
 import React from "react"
 import AngularIcon from "./icons/AngularIcon"
+import AWSIcon from "./icons/AWSIcon"
 import CSharpIcon from "./icons/CSharpIcon"
 import ElectronIcon from "./icons/ElectronIcon"
 import GatsbyIcon from "./icons/GatsbyIcon"
@@ -31,6 +32,7 @@ export type TechnologyName =
   | "SQLite3"
   | "Java"
   | "Oracle DB"
+  | "AWS"
 
 export interface Technology {
   name: TechnologyName
@@ -102,5 +104,10 @@ export const technologies: Technology[] = [
     name: "Oracle DB",
     icon: <OracleIcon />,
     url: "https://www.oracle.com/database",
+  },
+  {
+    name: "AWS",
+    icon: <AWSIcon />,
+    url: "https://aws.amazon.com",
   },
 ]
