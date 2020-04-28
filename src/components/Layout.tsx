@@ -32,6 +32,12 @@ import LayoutBase from "./LayoutBase"
 import SEOComponent from "./SEOComponent"
 import Spacer from "./Spacer"
 
+declare global {
+  interface Window {
+    show: boolean | undefined
+  }
+}
+
 const h1 = props => (
   <Box style={{ marginBottom: 12 }}>
     <Typography variant="h4" component="h1" {...props} />
@@ -186,16 +192,18 @@ export default function Layout(props: {
             <Spacer />
           </Hidden>
           <List>
-            {pages.map(page => (
-              <ListItem
-                button
-                component={Link}
-                to={page.route}
-                selected={currentPage && page.route == currentPage.route}
-              >
-                <ListItemText primary={page.title} />
-              </ListItem>
-            ))}
+            {pages
+              .filter(x => !x.isPrivate || window.show === true)
+              .map(page => (
+                <ListItem
+                  button
+                  component={Link}
+                  to={page.route}
+                  selected={currentPage && page.route == currentPage.route}
+                >
+                  <ListItemText primary={page.title} />
+                </ListItem>
+              ))}
           </List>
         </Drawer>
         <main className={classes.content}>

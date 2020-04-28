@@ -21,6 +21,12 @@ import SEOComponent from "../components/SEOComponent"
 import logo from "../images/logo.svg"
 import { pages } from "../pages"
 
+declare global {
+  interface Window {
+    show: boolean | undefined
+  }
+}
+
 const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2),
@@ -102,6 +108,7 @@ const IndexPage = () => {
           <Grid container spacing={4}>
             {pages
               .filter(x => x.displayOnHome)
+              .filter(x => !x.isPrivate || window.show !== undefined)
               .map(page => (
                 <Grid item xs={12} sm={6} md={4} key={page.route}>
                   <Card className={classes.card}>
