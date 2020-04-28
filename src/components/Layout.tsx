@@ -6,12 +6,12 @@ import {
   Grid,
   Hidden,
   IconButton,
+  Link as MUILink,
   List,
   ListItem,
   ListItemText,
   makeStyles,
   Paper,
-  Table,
   Toolbar,
   Tooltip,
   Typography,
@@ -29,6 +29,7 @@ import logoOnBlue from "../images/logo.svg"
 import { pages, RoutePath } from "../pages"
 import { technologies, Technology } from "../technologies"
 import LayoutBase from "./LayoutBase"
+import SEO from "./SEO"
 import Spacer from "./Spacer"
 
 const h1 = props => (
@@ -48,11 +49,7 @@ const h3 = props => (
   </Box>
 )
 
-const table = props => (
-  <Box style={{ marginBottom: 12 }}>
-    <Table padding={40} {...props} />
-  </Box>
-)
+const a = props => <MUILink color="primary" {...props} target="_blank" />
 
 const code = props => (
   <SyntaxHighlighter {...props} style={vs2015} language="typescript" />
@@ -146,6 +143,7 @@ export default function Layout(props: {
 
   return (
     <LayoutBase>
+      <SEO title={currentPage.title} description={currentPage.description} />
       <div className={classes.root}>
         <AppBar position="absolute" className={classes.appBar} color="default">
           <Toolbar>
@@ -207,11 +205,11 @@ export default function Layout(props: {
                   <Typography component="div">
                     <MDXProvider
                       components={{
+                        a,
                         h1,
                         h2,
                         h3,
                         code,
-                        table,
                       }}
                     >
                       {props.children}

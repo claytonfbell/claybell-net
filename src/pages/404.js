@@ -1,7 +1,7 @@
 import { Container } from "@material-ui/core"
 import React from "react"
 import LayoutBase from "../components/LayoutBase"
-import SEO from "../components/seo"
+import SEO from "../components/SEO"
 
 const NotFoundPage = () => (
   <LayoutBase>
