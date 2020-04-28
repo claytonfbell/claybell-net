@@ -1,26 +1,9 @@
 import CssBaseline from "@material-ui/core/CssBaseline"
-import Link from "@material-ui/core/Link"
 import { makeStyles } from "@material-ui/core/styles"
-import Typography from "@material-ui/core/Typography"
 import { ThemeProvider } from "@material-ui/styles"
 import React from "react"
 import theme from "../theme"
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {". Built with "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Material-UI.
-      </Link>
-    </Typography>
-  )
-}
 const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2),
@@ -68,7 +51,7 @@ function ThemeIt({ children }) {
   )
 }
 
-export default function Template({ children }) {
+export default function HomeTemplate({ children }) {
   const classes = useStyles()
 
   return (
