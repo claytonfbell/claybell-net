@@ -1,7 +1,7 @@
 import React from "react"
 import cbFiles from "./images/claybell-net/files.png"
-import itLogo from "./images/interactive-ticketing/it-logo.png"
-import mnwAutomation from "./images/mnw-automation/mnw-dock.jp2"
+import itLogo from "./images/it-logo.png"
+import mnwAutomation from "./images/mnw-automation/mnw-dock.png"
 import { TechnologyName } from "./technologies"
 
 export type RoutePath =
