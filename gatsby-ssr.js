@@ -3,5 +3,10 @@
  *
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
+const React = require("react")
+const DarkModeProvider = require("material-ui-pack/dist/DarkModeProvider")
+  .DarkModeProvider
 
-// You can delete this file if you're not using it
+exports.wrapRootElement = ({ element }) => {
+  return <DarkModeProvider>{element}</DarkModeProvider>
+}
