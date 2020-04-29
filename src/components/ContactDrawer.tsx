@@ -1,13 +1,16 @@
+import { Avatar, ListItemAvatar } from "@material-ui/core"
 import Button from "@material-ui/core/Button"
 import Drawer from "@material-ui/core/Drawer"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
 import ListItemText from "@material-ui/core/ListItemText"
-import { makeStyles } from "@material-ui/core/styles"
 import MailIcon from "@material-ui/icons/Mail"
 import PhoneIcon from "@material-ui/icons/Phone"
+import makeStyles from "@material-ui/styles/makeStyles"
+import { useDarkMode } from "material-ui-pack/dist/DarkModeProvider"
 import React from "react"
+import Gravatar from "react-gravatar"
 
 const useStyles = makeStyles({
   list: {
@@ -35,6 +38,8 @@ export default function Contact() {
     setState({ ...state, [side]: open })
   }
 
+  const { darkMode } = useDarkMode()
+
   const sideList = side => (
     <div
       className={classes.list}
@@ -43,6 +48,16 @@ export default function Contact() {
       onKeyDown={toggleDrawer(side, false)}
     >
       <List>
+        <ListItem>
+          <ListItemIcon>
+            <ListItemAvatar>
+              <Avatar>
+                <Gravatar email="claytonfbell@gmail.com" />
+              </Avatar>
+            </ListItemAvatar>
+          </ListItemIcon>
+          <ListItemText primary={`Clayton Bell`} />
+        </ListItem>
         <ListItem>
           <ListItemIcon>
             <PhoneIcon />
@@ -57,8 +72,9 @@ export default function Contact() {
         </ListItem>
         <ListItem>
           <ListItemText>
-            I have worked remotely for many years
-            <br /> and reside in Portland Oregon home.
+            I have worked remotely for many
+            <br />
+            years from Portland Oregon.
           </ListItemText>
         </ListItem>
       </List>
@@ -67,7 +83,12 @@ export default function Contact() {
 
   return (
     <div>
-      <Button variant="outlined" onClick={toggleDrawer("left", true)}>
+      <Button
+        variant="outlined"
+        size="large"
+        color={darkMode ? "secondary" : "default"}
+        onClick={toggleDrawer("left", true)}
+      >
         Contact Info
       </Button>
       <Drawer open={state.left} onClose={toggleDrawer("left", false)}>

@@ -1,33 +1,34 @@
-import {
-  AppBar,
-  Box,
-  Container,
-  Drawer,
-  Grid,
-  Hidden,
-  IconButton,
-  Link as MUILink,
-  List,
-  ListItem,
-  ListItemText,
-  makeStyles,
-  Paper,
-  Toolbar,
-  Tooltip,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@material-ui/core"
+import AppBar from "@material-ui/core/AppBar"
+import Box from "@material-ui/core/Box"
+import Container from "@material-ui/core/Container"
+import Drawer from "@material-ui/core/Drawer"
+import Grid from "@material-ui/core/Grid"
+import Hidden from "@material-ui/core/Hidden"
+import IconButton from "@material-ui/core/IconButton"
+import Link from "@material-ui/core/Link"
+import List from "@material-ui/core/List"
+import ListItem from "@material-ui/core/ListItem"
+import ListItemText from "@material-ui/core/ListItemText"
+import Paper from "@material-ui/core/Paper"
+import makeStyles from "@material-ui/core/styles/makeStyles"
+import useTheme from "@material-ui/core/styles/useTheme"
+import Toolbar from "@material-ui/core/Toolbar"
+import Tooltip from "@material-ui/core/Tooltip"
+import Typography from "@material-ui/core/Typography"
+import useMediaQuery from "@material-ui/core/useMediaQuery"
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
 import MenuIcon from "@material-ui/icons/Menu"
 import { MDXProvider } from "@mdx-js/react"
-import { Link } from "gatsby"
+import { Link as GatsbyLink } from "gatsby"
+import { useDarkMode } from "material-ui-pack/dist/DarkModeProvider"
 import React from "react"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { vs2015 } from "react-syntax-highlighter/dist/esm/styles/hljs"
-import logoOnBlue from "../images/logo.svg"
+import logoOnDark from "../images/logo-on-dark.svg"
+import logo from "../images/logo.svg"
 import { pages, RoutePath } from "../pages"
 import { technologies, Technology } from "../technologies"
+import Footer from "./Footer"
 import LayoutBase from "./LayoutBase"
 import SEOComponent from "./SEOComponent"
 import Spacer from "./Spacer"
@@ -50,7 +51,7 @@ const h3 = props => (
   </Box>
 )
 
-const a = props => <MUILink color="primary" {...props} target="_blank" />
+const a = props => <Link color="primary" {...props} target="_blank" />
 
 const code = props => (
   <SyntaxHighlighter {...props} style={vs2015} language="typescript" />
@@ -113,10 +114,12 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function Layout(props: {
+interface Props {
   children: React.ReactNode
   location: { pathname: RoutePath }
-}) {
+}
+
+function LayoutContent(props: Props) {
   const classes = useStyles()
 
   const theme = useTheme()
@@ -143,8 +146,10 @@ export default function Layout(props: {
       currentPage.stack.map(tech => technologies.find(x => x.name === tech))) ||
     []
 
+  const { darkMode } = useDarkMode()
+
   return (
-    <LayoutBase>
+    <>
       <SEOComponent
         title={currentPage.title}
         description={currentPage.description}
@@ -163,13 +168,13 @@ export default function Layout(props: {
                 <MenuIcon />
               </IconButton>
             )}
-            <Link to="/">
+            <GatsbyLink to="/">
               <img
                 style={{ height: 48, marginBottom: 0 }}
-                src={logoOnBlue}
+                src={darkMode ? logoOnDark : logo}
                 alt="Clayton Bell"
               />
-            </Link>
+            </GatsbyLink>
           </Toolbar>
         </AppBar>
 
@@ -179,6 +184,7 @@ export default function Layout(props: {
             paper: classes.drawerPaper,
           }}
           open={!isSmDown || open}
+          onBackdropClick={() => setOpen(false)}
         >
           <div className={classes.toolbarIcon}>
             <IconButton onClick={handleDrawerClose}>
@@ -194,7 +200,7 @@ export default function Layout(props: {
               .map(page => (
                 <ListItem
                   button
-                  component={Link}
+                  component={GatsbyLink}
                   to={page.route}
                   selected={currentPage && page.route == currentPage.route}
                 >
@@ -226,6 +232,9 @@ export default function Layout(props: {
                     </MDXProvider>
                   </Typography>
                 </Paper>
+                <Hidden xsDown>
+                  <Footer />
+                </Hidden>
               </Grid>
               <Grid item xs={12} sm={1} style={{ textAlign: "center" }}>
                 <Hidden smDown>
@@ -240,9 +249,20 @@ export default function Layout(props: {
                 ))}
               </Grid>
             </Grid>
+            <Hidden smUp>
+              <Footer />
+            </Hidden>
           </Container>
         </main>
       </div>
+    </>
+  )
+}
+
+export default function Layout(props: Props) {
+  return (
+    <LayoutBase>
+      <LayoutContent {...props} />
     </LayoutBase>
   )
 }

@@ -1,23 +1,22 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Container,
-  Fade,
-  Grid,
-  Paper,
-  Typography,
-} from "@material-ui/core"
+import Box from "@material-ui/core/Box"
+import Button from "@material-ui/core/Button"
+import Card from "@material-ui/core/Card"
+import CardActions from "@material-ui/core/CardActions"
+import CardContent from "@material-ui/core/CardContent"
+import CardMedia from "@material-ui/core/CardMedia"
+import Container from "@material-ui/core/Container"
+import Fade from "@material-ui/core/Fade"
+import Grid from "@material-ui/core/Grid"
+import Paper from "@material-ui/core/Paper"
 import { makeStyles } from "@material-ui/core/styles"
+import Typography from "@material-ui/core/Typography"
 import { Link } from "gatsby"
 import { useDarkMode } from "material-ui-pack/dist/DarkModeProvider"
 import React from "react"
 import Gravatar from "react-gravatar"
 import { useTimeout } from "react-use"
 import Contact from "../components/ContactDrawer"
+import Footer from "../components/Footer"
 import HomeTemplate from "../components/HomeTemplate"
 import SEOComponent from "../components/SEOComponent"
 import useShowPrivate from "../components/useShowPrivate"
@@ -47,6 +46,7 @@ const useStyles = makeStyles(theme => ({
   },
   cardMedia: {
     paddingTop: "56.25%", // 16:9
+    borderBottom: "1px solid " + theme.palette.divider,
   },
   cardContent: {
     flexGrow: 1,
@@ -101,16 +101,15 @@ const IndexPageContent = () => {
       </Paper>
       <Container className={classes.cardGrid} maxWidth="md">
         <Fade in={showThird}>
-          <Grid container spacing={4}>
+          <Grid container spacing={2} justify="center">
             {pages
               .filter(x => x.displayOnHome)
               .filter(x => !x.isPrivate || showPrivate === "yes")
               .map(page => (
-                <Grid item xs={12} sm={6} md={4} key={page.route}>
+                <Grid item xs={10} sm={6} md={4} lg={3} key={page.route}>
                   <Card className={classes.card}>
                     <Link to={page.route}>
                       <CardMedia
-                        style={{ backgroundColor: "#ddd" }}
                         className={classes.cardMedia}
                         image={page.image}
                         title={page.title}
@@ -133,6 +132,7 @@ const IndexPageContent = () => {
               ))}
           </Grid>
         </Fade>
+        <Footer />
       </Container>
     </>
   )

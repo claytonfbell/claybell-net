@@ -20,7 +20,7 @@ function ThemedContent({ children }: Props) {
             contrastText: "#ffffff",
           },
           secondary: {
-            main: "#f8cf47",
+            main: "#e0be25",
           },
         },
       })}
