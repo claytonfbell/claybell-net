@@ -24,7 +24,7 @@
     "gatsby-transformer-sharp": "^2.5.0",
     "github-markdown-css": "^4.0.0",
     "ink-spinner": "^3.0.1",
-    "material-ui-pack": "^0.2.15",
+    "material-ui-pack": "^0.2.16",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
