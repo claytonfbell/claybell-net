@@ -8,10 +8,12 @@ import {
   Container,
   Fade,
   Grid,
+  Paper,
   Typography,
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { Link } from "gatsby"
+import { useDarkMode } from "material-ui-pack/dist/DarkModeProvider"
 import React from "react"
 import Gravatar from "react-gravatar"
 import { useTimeout } from "react-use"
@@ -19,6 +21,7 @@ import Contact from "../components/ContactDrawer"
 import HomeTemplate from "../components/HomeTemplate"
 import SEOComponent from "../components/SEOComponent"
 import useShowPrivate from "../components/useShowPrivate"
+import logoOnDark from "../images/logo-on-dark.svg"
 import logo from "../images/logo.svg"
 import { pages } from "../pages"
 
@@ -27,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2),
   },
   heroContent: {
-    backgroundColor: theme.palette.background.paper,
+    // backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
   },
   heroButtons: {
@@ -58,21 +61,21 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const IndexPage = () => {
+const IndexPageContent = () => {
   const classes = useStyles()
   const showFirst = useTimeout(50)
   const showThird = useTimeout(250)
   const showPrivate = useShowPrivate()
+  const { darkMode } = useDarkMode()
 
   return (
-    <HomeTemplate>
+    <>
       <SEOComponent title="Clayton Bell" />
-
-      <div className={classes.heroContent}>
+      <Paper className={classes.heroContent}>
         <Fade in={true}>
           <Container maxWidth="sm">
             <Fade in={showFirst}>
-              <img src={logo} alt="Clayton Bell" />
+              <img src={darkMode ? logoOnDark : logo} alt="Clayton Bell" />
             </Fade>
             <Typography variant="h5" align="center" paragraph>
               Experienced, Productive, Creative
@@ -95,7 +98,7 @@ const IndexPage = () => {
             </div>
           </Container>
         </Fade>
-      </div>
+      </Paper>
       <Container className={classes.cardGrid} maxWidth="md">
         <Fade in={showThird}>
           <Grid container spacing={4}>
@@ -131,8 +134,14 @@ const IndexPage = () => {
           </Grid>
         </Fade>
       </Container>
-    </HomeTemplate>
+    </>
   )
 }
 
-export default IndexPage
+export default function IndexPage() {
+  return (
+    <HomeTemplate>
+      <IndexPageContent />
+    </HomeTemplate>
+  )
+}

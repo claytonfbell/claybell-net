@@ -1,6 +1,7 @@
 import cbFiles from "./images/claybell-net/files.png"
 import itScan from "./images/interactive-ticketing/scan.png"
 import itLogo from "./images/it-logo.png"
+import npm from "./images/material-ui-pack/npm.png"
 import mnwAutomation from "./images/mnw-automation/mnw-dock.png"
 import tututix from "./images/tutu/iphone.png"
 import { TechnologyName } from "./technologies"
@@ -12,6 +13,7 @@ export type RoutePath =
   | "/interactiveticketing"
   | "/scan-tickets"
   | "/tututix"
+  | "/material-ui-pack"
 
 interface Page {
   route: RoutePath
@@ -24,6 +26,14 @@ interface Page {
 }
 
 export const pages: Page[] = [
+  {
+    route: "/material-ui-pack",
+    displayOnHome: true,
+    title: "New NPM Package",
+    image: npm,
+    description: `An opinionated api for form state, dark-mode and more.`,
+    stack: ["npm", "Travis CI", "React", "TypeScript", "Material UI"],
+  },
   {
     route: "/mnw-automation",
     displayOnHome: true,
@@ -55,7 +65,7 @@ export const pages: Page[] = [
     title: "TutuTix Dashboard",
     image: tututix,
     description: `Helping build a new dashboard manager for the TutuTix platform.`,
-    stack: ["Java", "Oracle DB", "AWS", "React", "TypeScript"],
+    stack: ["Java", "Oracle DB", "AWS", "Jenkins CI", "React", "TypeScript"],
   },
   {
     route: "/this-website",

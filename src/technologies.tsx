@@ -5,15 +5,18 @@ import CSharpIcon from "./icons/CSharpIcon"
 import ElectronIcon from "./icons/ElectronIcon"
 import GatsbyIcon from "./icons/GatsbyIcon"
 import JavaIcon from "./icons/JavaIcon"
+import JenkinsIcon from "./icons/JenkinsIcon"
 import MaterialUIIcon from "./icons/MaterialUIIcon"
 import MDXIcon from "./icons/MDXIcon"
 import MySQLIcon from "./icons/MySQLIcon"
 import NetlifyIcon from "./icons/NetlifyIcon"
+import NPMIcon from "./icons/NPMIcon"
 import ObjectiveCIcon from "./icons/ObjectiveCIcon"
 import OracleIcon from "./icons/OracleIcon"
 import PHPIcon from "./icons/PHPIcon"
 import ReactIcon from "./icons/ReactIcon"
 import SQLite3Icon from "./icons/SQLite3Icon"
+import TravisIcon from "./icons/TravisIcon"
 import TypeScriptIcon from "./icons/TypeScriptIcon"
 
 export type TechnologyName =
@@ -33,6 +36,9 @@ export type TechnologyName =
   | "Java"
   | "Oracle DB"
   | "AWS"
+  | "npm"
+  | "Travis CI"
+  | "Jenkins CI"
 
 export interface Technology {
   name: TechnologyName
@@ -110,4 +116,11 @@ export const technologies: Technology[] = [
     icon: <AWSIcon />,
     url: "https://aws.amazon.com",
   },
+  {
+    name: "npm",
+    icon: <NPMIcon />,
+    url: "https://www.npmjs.com",
+  },
+  { name: "Travis CI", icon: <TravisIcon />, url: "https://travis-ci.org" },
+  { name: "Jenkins CI", icon: <JenkinsIcon />, url: "https://www.jenkins.io" },
 ]
