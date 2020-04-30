@@ -1,6 +1,7 @@
 import React from "react"
 import AngularIcon from "./icons/AngularIcon"
 import AWSIcon from "./icons/AWSIcon"
+import BootstrapIcon from "./icons/BootstrapIcon"
 import CSharpIcon from "./icons/CSharpIcon"
 import ElectronIcon from "./icons/ElectronIcon"
 import GatsbyIcon from "./icons/GatsbyIcon"
@@ -39,6 +40,7 @@ export type TechnologyName =
   | "npm"
   | "Travis CI"
   | "Jenkins CI"
+  | "Bootstrap"
 
 export interface Technology {
   name: TechnologyName
@@ -123,4 +125,9 @@ export const technologies: Technology[] = [
   },
   { name: "Travis CI", icon: <TravisIcon />, url: "https://travis-ci.org" },
   { name: "Jenkins CI", icon: <JenkinsIcon />, url: "https://www.jenkins.io" },
+  {
+    name: "Bootstrap",
+    icon: <BootstrapIcon />,
+    url: "https://getbootstrap.com",
+  },
 ]

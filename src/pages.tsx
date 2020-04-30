@@ -4,7 +4,7 @@ import itLogo from "./images/it-logo.png"
 import npm from "./images/material-ui-pack/npm2.png"
 import mnwAutomation from "./images/mnw-automation/mnw-dock.png"
 import tututix from "./images/tutu/iphone.png"
-import { TechnologyName } from "./technologies"
+import { technologies, TechnologyName } from "./technologies"
 
 export type RoutePath =
   | "/"
@@ -14,6 +14,7 @@ export type RoutePath =
   | "/scan-tickets"
   | "/tututix"
   | "/material-ui-pack"
+  | "/my-resume"
 
 interface Page {
   route: RoutePath
@@ -48,7 +49,7 @@ export const pages: Page[] = [
     title: "Interactive Ticketing",
     image: itLogo,
     description: `The primary software engineer that developed and maintained the platform from its founding.`,
-    stack: ["PHP", "MySQL", "Angular", "TypeScript"],
+    stack: ["PHP", "MySQL", "Angular", "TypeScript", "Bootstrap"],
   },
   {
     route: "/scan-tickets",
@@ -65,7 +66,15 @@ export const pages: Page[] = [
     title: "TutuTix Dashboard",
     image: tututix,
     description: `Helping build a new dashboard manager for the TutuTix platform.`,
-    stack: ["Java", "Oracle DB", "AWS", "Jenkins CI", "React", "TypeScript"],
+    stack: [
+      "Java",
+      "Oracle DB",
+      "AWS",
+      "Jenkins CI",
+      "React",
+      "TypeScript",
+      "Material UI",
+    ],
   },
   {
     route: "/this-website",
@@ -74,5 +83,12 @@ export const pages: Page[] = [
     image: cbFiles,
     description: `This blog / portfolio site.`,
     stack: ["Gatsby", "React", "mdx", "TypeScript", "Material UI", "Netlify"],
+  },
+  {
+    isPrivate: true,
+    route: "/my-resume",
+    displayOnHome: false,
+    title: "My Resumé",
+    stack: technologies.map(x => x.name),
   },
 ]

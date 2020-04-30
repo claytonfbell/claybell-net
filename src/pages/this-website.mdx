@@ -1,35 +1,9 @@
+import ThisWebsite from "./this-website/ThisWebsite"
+
 # This Website
 
 This website is produced with Gatsby framework and deployed to Netlify.
 
 Source code here: <https://github.com/claytonfbell/claybell-net>
 
-![Netlify](../images/claybell-net/netlify.png)
-
-```ts
-export type TechnologyName =
-  | "TypeScript"
-  | "Electron"
-  | "Material UI"
-  | "React"
-  | "mdx"
-  | "Gatsby"
-  | "Netlify"
-  | "Angular"
-  | "PHP"
-  | "MySQL"
-
-export interface Technology {
-  name: TechnologyName
-  icon: React.ReactNode
-  url: string
-}
-
-export const technologies: Technology[] = [
-  {
-    name: "TypeScript",
-    icon: <TypeScriptIcon />,
-    url: "https://www.typescriptlang.org/",
-  },
-
-```
+<ThisWebsite />

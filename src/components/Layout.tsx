@@ -237,9 +237,11 @@ function LayoutContent(props: Props) {
                 </Hidden>
               </Grid>
               <Grid item xs={12} sm={1} style={{ textAlign: "center" }}>
-                <Hidden smDown>
-                  <Typography variant="caption">Stack</Typography>
-                </Hidden>
+                {currentTechnologies.length > 0 && (
+                  <Hidden smDown>
+                    <Typography variant="caption">Stack</Typography>
+                  </Hidden>
+                )}
                 {currentTechnologies.map(t => (
                   <Tooltip arrow title={t.name} key={t.name}>
                     <IconButton href={t.url} target={t.name}>

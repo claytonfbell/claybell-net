@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
 const IndexPageContent = () => {
   const classes = useStyles()
   const showFirst = useTimeout(50)
-  const showThird = useTimeout(250)
+  const showSecond = useTimeout(250)
   const showPrivate = useShowPrivate()
   const { darkMode } = useDarkMode()
 
@@ -100,7 +100,7 @@ const IndexPageContent = () => {
         </Fade>
       </Paper>
       <Container className={classes.cardGrid} maxWidth="md">
-        <Fade in={showThird}>
+        <Fade in={showSecond}>
           <Grid container spacing={2} justify="center">
             {pages
               .filter(x => x.displayOnHome)
