@@ -153,6 +153,7 @@ function LayoutContent(props: Props) {
       <SEOComponent
         title={currentPage.title}
         description={currentPage.description}
+        imageSrc={currentPage.image}
       />
       <div className={classes.root}>
         <AppBar position="absolute" className={classes.appBar} color="default">
