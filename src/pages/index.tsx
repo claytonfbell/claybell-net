@@ -20,6 +20,7 @@ import Footer from "../components/Footer"
 import HomeTemplate from "../components/HomeTemplate"
 import SEOComponent from "../components/SEOComponent"
 import useShowPrivate from "../components/useShowPrivate"
+import mobileDark from "../images/claybell-net/mobile-dark.png"
 import logoOnDark from "../images/logo-on-dark.svg"
 import logo from "../images/logo.svg"
 import { pages } from "../pages"
@@ -70,7 +71,7 @@ const IndexPageContent = () => {
 
   return (
     <>
-      <SEOComponent title="Clayton Bell" />
+      <SEOComponent title="Clayton Bell" imageSrc={mobileDark} />
       <Paper className={classes.heroContent}>
         <Fade in={true}>
           <Container maxWidth="sm">
