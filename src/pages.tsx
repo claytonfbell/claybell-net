@@ -1,6 +1,7 @@
 import cbFiles from "./images/claybell-net/files.png"
 import itScan from "./images/interactive-ticketing/scan.png"
 import itLogo from "./images/it-logo.png"
+import keyboards from "./images/keyboards/wood-open.jpeg"
 import npm from "./images/material-ui-pack/npm2.png"
 import mnwAutomation from "./images/mnw-automation/mnw-dock.png"
 import tututix from "./images/tutu/iphone.png"
@@ -15,6 +16,7 @@ export type RoutePath =
   | "/tututix"
   | "/material-ui-pack"
   | "/my-resume"
+  | "/keyboards"
 
 interface Page {
   route: RoutePath
@@ -83,6 +85,14 @@ export const pages: Page[] = [
     image: cbFiles,
     description: `This blog / portfolio site.`,
     stack: ["Gatsby", "React", "mdx", "TypeScript", "Material UI", "Netlify"],
+  },
+  {
+    isPrivate: false,
+    route: "/keyboards",
+    displayOnHome: true,
+    title: "Keyboards",
+    description: "Keyboards are fun.",
+    image: keyboards,
   },
   {
     isPrivate: true,
