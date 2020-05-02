@@ -4,6 +4,7 @@ import itLogo from "./images/it-logo.png"
 import keyboards from "./images/keyboards/wood-open.jpeg"
 import npm from "./images/material-ui-pack/npm2.png"
 import mnwAutomation from "./images/mnw-automation/mnw-dock.png"
+import turnstile from "./images/turnstile/turnstiles.jpg"
 import tututix from "./images/tutu/iphone.png"
 import { technologies, TechnologyName } from "./technologies"
 
@@ -17,6 +18,7 @@ export type RoutePath =
   | "/material-ui-pack"
   | "/my-resume"
   | "/keyboards"
+  | "/turnstile"
 
 interface Page {
   route: RoutePath
@@ -29,6 +31,14 @@ interface Page {
 }
 
 export const pages: Page[] = [
+  {
+    route: "/turnstile",
+    displayOnHome: true,
+    title: "The Turnstile Project",
+    image: turnstile,
+    description: `An interesting project accomplished on a very short timeline.`,
+    stack: ["PHP", "MySQL", ".NET C#", "SQLite3"],
+  },
   {
     route: "/material-ui-pack",
     displayOnHome: true,
