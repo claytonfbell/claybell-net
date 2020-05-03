@@ -6,7 +6,13 @@
 const React = require("react")
 const DarkModeProvider = require("material-ui-pack/dist/DarkModeProvider")
   .DarkModeProvider
+const ShowPrivateProvider = require("./src/components/ShowPrivateProvider")
+  .ShowPrivateProvider
 
 exports.wrapRootElement = ({ element }) => {
-  return <DarkModeProvider>{element}</DarkModeProvider>
+  return (
+    <DarkModeProvider>
+      <ShowPrivateProvider>{element}</ShowPrivateProvider>
+    </DarkModeProvider>
+  )
 }

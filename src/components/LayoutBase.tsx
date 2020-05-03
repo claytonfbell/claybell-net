@@ -4,6 +4,7 @@ import {
   useDarkMode,
 } from "material-ui-pack/dist/DarkModeProvider"
 import React from "react"
+import { ShowPrivateProvider } from "./ShowPrivateProvider"
 
 interface Props {
   children: React.ReactNode
@@ -34,7 +35,9 @@ function ThemedContent({ children }: Props) {
 export default function LayoutBase(props: Props) {
   return (
     <DarkModeProvider>
-      <ThemedContent {...props} />
+      <ShowPrivateProvider>
+        <ThemedContent {...props} />
+      </ShowPrivateProvider>
     </DarkModeProvider>
   )
 }

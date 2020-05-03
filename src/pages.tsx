@@ -4,9 +4,10 @@ import itLogo from "./images/it-logo.png"
 import keyboards from "./images/keyboards/wood-open.jpeg"
 import npm from "./images/material-ui-pack/npm2.png"
 import mnwAutomation from "./images/mnw-automation/mnw-dock.png"
+import resume from "./images/resume/coffee.jpeg"
 import turnstile from "./images/turnstile/turnstiles.jpg"
 import tututix from "./images/tutu/iphone.png"
-import { technologies, TechnologyName } from "./technologies"
+import { TechnologyName } from "./technologies"
 
 export type RoutePath =
   | "/"
@@ -16,7 +17,7 @@ export type RoutePath =
   | "/scan-tickets"
   | "/tututix"
   | "/material-ui-pack"
-  | "/my-resume"
+  | "/resume"
   | "/keyboards"
   | "/turnstile"
 
@@ -24,13 +25,22 @@ interface Page {
   route: RoutePath
   title: string
   displayOnHome?: boolean
-  description?: string
-  image?: string
-  stack?: TechnologyName[]
+  description: string
+  image: string
+  stack: TechnologyName[]
   isPrivate?: boolean
 }
 
 export const pages: Page[] = [
+  {
+    isPrivate: true,
+    route: "/resume",
+    displayOnHome: true,
+    title: "My Resumé",
+    description: "My career path.",
+    image: resume,
+    stack: [],
+  },
   {
     route: "/turnstile",
     displayOnHome: true,
@@ -103,12 +113,6 @@ export const pages: Page[] = [
     title: "Keyboards",
     description: "Keyboards are fun.",
     image: keyboards,
-  },
-  {
-    isPrivate: true,
-    route: "/my-resume",
-    displayOnHome: false,
-    title: "My Resumé",
-    stack: technologies.map(x => x.name),
+    stack: [],
   },
 ]

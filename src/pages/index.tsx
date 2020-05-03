@@ -19,7 +19,7 @@ import Contact from "../components/ContactDrawer"
 import Footer from "../components/Footer"
 import HomeTemplate from "../components/HomeTemplate"
 import SEOComponent from "../components/SEOComponent"
-import useShowPrivate from "../components/useShowPrivate"
+import { useShowPrivate } from "../components/ShowPrivateProvider"
 import mobileDark from "../images/claybell-net/mobile-dark.png"
 import logoOnDark from "../images/logo-on-dark.svg"
 import logo from "../images/logo.svg"
@@ -66,7 +66,7 @@ const IndexPageContent = () => {
   const classes = useStyles()
   const showFirst = useTimeout(50)
   const showSecond = useTimeout(250)
-  const showPrivate = useShowPrivate()
+  const { showPrivate } = useShowPrivate()
   const { darkMode } = useDarkMode()
 
   return (
@@ -124,8 +124,12 @@ const IndexPageContent = () => {
                       <Typography>{page.description}</Typography>
                     </CardContent>
                     <CardActions>
-                      <Button component={Link} to={page.route}>
-                        More Info
+                      <Button
+                        component={Link}
+                        to={page.route}
+                        variant="outlined"
+                      >
+                        More
                       </Button>
                     </CardActions>
                   </Card>

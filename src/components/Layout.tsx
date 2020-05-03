@@ -31,8 +31,8 @@ import { technologies, Technology } from "../technologies"
 import Footer from "./Footer"
 import LayoutBase from "./LayoutBase"
 import SEOComponent from "./SEOComponent"
+import { useShowPrivate } from "./ShowPrivateProvider"
 import Spacer from "./Spacer"
-import useShowPrivate from "./useShowPrivate"
 
 const h1 = props => (
   <Box style={{ marginBottom: 12 }}>
@@ -56,6 +56,15 @@ const a = props => <Link color="primary" {...props} target="_blank" />
 const code = props => (
   <SyntaxHighlighter {...props} style={vs2015} language="typescript" />
 )
+
+export const LayoutComponents = {
+  h1,
+  h2,
+  h3,
+  a,
+  code,
+}
+
 const drawerWidth = 240
 
 const useStyles = makeStyles(theme => ({
@@ -134,7 +143,7 @@ function LayoutContent(props: Props) {
     setOpen(false)
   }
 
-  const showPrivate = useShowPrivate()
+  const { showPrivate } = useShowPrivate()
 
   const currentPage = pages.find(
     x => x.route === props.location.pathname.replace(/\/$/, "")
@@ -220,15 +229,7 @@ function LayoutContent(props: Props) {
                   elevation={isLgUp ? 3 : undefined}
                 >
                   <Typography component="div">
-                    <MDXProvider
-                      components={{
-                        a,
-                        h1,
-                        h2,
-                        h3,
-                        code,
-                      }}
-                    >
+                    <MDXProvider components={LayoutComponents}>
                       {props.children}
                     </MDXProvider>
                   </Typography>
