@@ -53,6 +53,12 @@ export interface Technology {
 
 export const technologies: Technology[] = [
   {
+    name: "React",
+    icon: <ReactIcon />,
+    url: "https://www.reactjs.org",
+    group: "Front-End",
+  },
+  {
     name: "TypeScript",
     icon: <TypeScriptIcon />,
     url: "https://www.typescriptlang.org/",
@@ -71,29 +77,25 @@ export const technologies: Technology[] = [
     group: "Front-End",
   },
   {
+    name: "Bootstrap",
+    icon: <BootstrapIcon />,
+    url: "https://getbootstrap.com",
+    group: "Front-End",
+  },
+  {
     name: "Gatsby",
     icon: <GatsbyIcon />,
     url: "https://www.gatsbyjs.org",
     group: "Front-End",
   },
-  {
-    name: "React",
-    icon: <ReactIcon />,
-    url: "https://www.reactjs.org",
-    group: "Front-End",
-  },
+
   {
     name: "mdx",
     icon: <MDXIcon />,
     url: "https://mdxjs.com",
     group: "Front-End",
   },
-  {
-    name: "Netlify",
-    icon: <NetlifyIcon />,
-    url: "https://www.netlify.com/",
-    group: "DevOps",
-  },
+
   {
     name: "Angular",
     icon: <AngularIcon />,
@@ -162,10 +164,11 @@ export const technologies: Technology[] = [
     url: "https://www.jenkins.io",
     group: "DevOps",
   },
+
   {
-    name: "Bootstrap",
-    icon: <BootstrapIcon />,
-    url: "https://getbootstrap.com",
-    group: "Front-End",
+    name: "Netlify",
+    icon: <NetlifyIcon />,
+    url: "https://www.netlify.com/",
+    group: "DevOps",
   },
 ]

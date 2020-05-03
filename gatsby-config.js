@@ -6,11 +6,20 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+
     `gatsby-remark-images`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `components`,
+        path: `${__dirname}/src/components/`,
+      },
+    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         defaultLayouts: {
+          components: require.resolve("./src/components/LayoutBase.tsx"),
           default: require.resolve("./src/components/Layout.tsx"),
         },
         gatsbyRemarkPlugins: [
