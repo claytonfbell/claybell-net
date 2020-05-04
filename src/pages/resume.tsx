@@ -1,5 +1,4 @@
-import { Button, Grid, Typography } from "@material-ui/core"
-import CloudDownload from "@material-ui/icons/CloudDownload"
+import { Button, Grid, Link, Typography } from "@material-ui/core"
 import EmailIcon from "@material-ui/icons/Email"
 import PhoneIcon from "@material-ui/icons/Phone"
 import React from "react"
@@ -8,7 +7,8 @@ import Spacer from "../components/Spacer"
 import { employment } from "../employment"
 import ResumeToggle from "./resume/ResumeToggle"
 import TechStack from "./resume/TechStack"
-function ResumeContent(props) {
+
+function ResumeContent() {
   return (
     <>
       <Grid container justify="space-between">
@@ -20,18 +20,14 @@ function ResumeContent(props) {
           <Typography>
             <EmailIcon fontSize="inherit" /> claytonfbell@gmail.com
           </Typography>
-          <Spacer size="large" />
         </Grid>
         <Grid item>
-          <Button
-            href="/print"
-            variant="outlined"
-            startIcon={<CloudDownload />}
-          >
+          <Button href="/print" variant="outlined">
             PDF Version
           </Button>
         </Grid>
       </Grid>
+      <Spacer size="large" />
 
       <TechStack />
 
@@ -48,6 +44,11 @@ function ResumeContent(props) {
           </Typography>
           <Spacer />
           <Typography>{e.text}</Typography>
+          {e.url !== undefined && (
+            <Link target="_blank" href={e.url}>
+              {e.url}
+            </Link>
+          )}
           <Spacer size="large" />
         </>
       ))}
