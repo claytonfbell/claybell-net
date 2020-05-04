@@ -1,4 +1,4 @@
-import { Button, Grid, Link, Typography } from "@material-ui/core"
+import { Button, Grid, Hidden, Link, Typography } from "@material-ui/core"
 import EmailIcon from "@material-ui/icons/Email"
 import PhoneIcon from "@material-ui/icons/Phone"
 import React from "react"
@@ -23,7 +23,8 @@ function ResumeContent() {
         </Grid>
         <Grid item>
           <Button href="/print" variant="outlined">
-            PDF Version
+            <Hidden xsDown>PDF Version</Hidden>
+            <Hidden smUp>PDF</Hidden>
           </Button>
         </Grid>
       </Grid>
