@@ -1,7 +1,5 @@
 import Box from "@material-ui/core/Box"
-import Button from "@material-ui/core/Button"
 import Card from "@material-ui/core/Card"
-import CardActions from "@material-ui/core/CardActions"
 import CardContent from "@material-ui/core/CardContent"
 import CardMedia from "@material-ui/core/CardMedia"
 import Container from "@material-ui/core/Container"
@@ -10,7 +8,7 @@ import Grid from "@material-ui/core/Grid"
 import Paper from "@material-ui/core/Paper"
 import { makeStyles } from "@material-ui/core/styles"
 import Typography from "@material-ui/core/Typography"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { useDarkMode } from "material-ui-pack/dist/DarkModeProvider"
 import React from "react"
 import Gravatar from "react-gravatar"
@@ -24,6 +22,24 @@ import mobileDark from "../images/claybell-net/mobile-dark.png"
 import logoOnDark from "../images/logo-on-dark.svg"
 import logo from "../images/logo.svg"
 import { pages } from "../pages"
+
+export const query = graphql`
+  {
+    allImageSharp(sort: { fields: [fluid___originalName], order: ASC }) {
+      edges {
+        node {
+          resize(width: 300, height: 200) {
+            src
+          }
+          fluid {
+            originalName
+            src
+          }
+        }
+      }
+    }
+  }
+`
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -60,9 +76,36 @@ const useStyles = makeStyles(theme => ({
     display: "block",
     marginBottom: theme.spacing(1),
   },
+  cardLink: {
+    color: "#ffffff",
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "underline",
+    },
+  },
 }))
 
-const IndexPageContent = () => {
+interface Props {
+  data: {
+    allImageSharp: {
+      edges: [
+        {
+          node: {
+            resize: {
+              src: string
+            }
+            fluid: {
+              originalName: string
+              src: string
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+const IndexPageContent = (props: Props) => {
   const classes = useStyles()
   const showFirst = useTimeout(50)
   const showSecond = useTimeout(250)
@@ -112,26 +155,25 @@ const IndexPageContent = () => {
                     <Link to={page.route}>
                       <CardMedia
                         className={classes.cardMedia}
-                        image={page.image}
                         title={page.title}
+                        image={
+                          props.data.allImageSharp.edges.find(
+                            x =>
+                              page.image.indexOf(x.node.fluid.originalName) !==
+                              -1
+                          ).node.resize.src
+                        }
                       />
                     </Link>
                     <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2">
-                        {page.title}
+                        <Link className={classes.cardLink} to={page.route}>
+                          {page.title}
+                        </Link>
                       </Typography>
 
                       <Typography>{page.description}</Typography>
                     </CardContent>
-                    <CardActions>
-                      <Button
-                        component={Link}
-                        to={page.route}
-                        variant="outlined"
-                      >
-                        More
-                      </Button>
-                    </CardActions>
                   </Card>
                 </Grid>
               ))}
@@ -143,10 +185,10 @@ const IndexPageContent = () => {
   )
 }
 
-export default function IndexPage() {
+export default function IndexPage(props) {
   return (
     <HomeTemplate>
-      <IndexPageContent />
+      <IndexPageContent {...props} />
     </HomeTemplate>
   )
 }

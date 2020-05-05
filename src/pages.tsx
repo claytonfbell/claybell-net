@@ -1,12 +1,3 @@
-import cbFiles from "./images/claybell-net/files.png"
-import itScan from "./images/interactive-ticketing/scan.png"
-import itLogo from "./images/it-logo.png"
-import keyboards from "./images/keyboards/wood-open.jpeg"
-import npm from "./images/material-ui-pack/npm2.png"
-import mnwAutomation from "./images/mnw-automation/mnw-dock.png"
-import resume from "./images/resume/coffee.jpeg"
-import turnstile from "./images/turnstile/turnstiles.jpg"
-import tututix from "./images/tutu/iphone.png"
 import { TechnologyName } from "./technologies"
 
 export type RoutePath =
@@ -38,14 +29,14 @@ export const pages: Page[] = [
     displayOnHome: true,
     title: "My Resumé",
     description: "My career path.",
-    image: resume,
+    image: "resume/coffee.jpeg",
     stack: [],
   },
   {
     route: "/turnstile",
     displayOnHome: true,
     title: "The Turnstile Project",
-    image: turnstile,
+    image: "turnstile/turnstiles.jpg",
     description: `An interesting project accomplished on a very short timeline.`,
     stack: ["PHP", "MySQL", ".NET C#", "SQLite3"],
   },
@@ -53,7 +44,7 @@ export const pages: Page[] = [
     route: "/material-ui-pack",
     displayOnHome: true,
     title: "New NPM Package",
-    image: npm,
+    image: "material-ui-pack/npm2.png",
     description: `An opinionated api for form state, dark-mode and more.`,
     stack: ["npm", "Travis CI", "React", "TypeScript", "Material UI"],
   },
@@ -61,7 +52,7 @@ export const pages: Page[] = [
     route: "/mnw-automation",
     displayOnHome: true,
     title: "New Electron App",
-    image: mnwAutomation,
+    image: "mnw-automation/mnw-dock.png",
     description: `An Electron side-project application for Montessori Northwest.`,
     stack: ["Electron", "React", "TypeScript", "Material UI"],
   },
@@ -69,7 +60,7 @@ export const pages: Page[] = [
     route: "/interactiveticketing",
     displayOnHome: true,
     title: "Interactive Ticketing",
-    image: itLogo,
+    image: "it-logo.png",
     description: `The primary software engineer that developed and maintained the platform from its founding.`,
     stack: ["PHP", "MySQL", "Angular", "TypeScript", "Bootstrap"],
   },
@@ -77,7 +68,7 @@ export const pages: Page[] = [
     route: "/scan-tickets",
     displayOnHome: true,
     title: "Ticket Scanning Apps",
-    image: itScan,
+    image: "interactive-ticketing/scan.png",
     description: `These products were developeed several years ago for our Interactive Ticketing clients to scan tickets at their venues.`,
     stack: ["PHP", "MySQL", "iOS - Objective-C", ".NET C#", "SQLite3"],
   },
@@ -86,7 +77,7 @@ export const pages: Page[] = [
     route: "/tututix",
     displayOnHome: true,
     title: "TutuTix Dashboard",
-    image: tututix,
+    image: "tutu/iphone.png",
     description: `Helping build a new dashboard manager for the TutuTix platform.`,
     stack: [
       "Java",
@@ -102,7 +93,7 @@ export const pages: Page[] = [
     route: "/this-website",
     displayOnHome: true,
     title: "This Website",
-    image: cbFiles,
+    image: "claybell-net/files.png",
     description: `This blog / portfolio site.`,
     stack: ["Gatsby", "React", "mdx", "TypeScript", "Material UI", "Netlify"],
   },
@@ -112,7 +103,7 @@ export const pages: Page[] = [
     displayOnHome: true,
     title: "Keyboards",
     description: "Keyboards are fun.",
-    image: keyboards,
+    image: "keyboards/wood-open.jpeg",
     stack: [],
   },
 ]
