@@ -69,7 +69,7 @@ const MyDocument = () => {
           <Text>claytonfbell@gmail.com</Text>
           <Text>(971) 285-5666</Text>
           <Link src="https://claybell.net/resume" style={styles.link}>
-            claybell.net
+            https://claybell.net
           </Link>
           <Text style={styles.spacer}> </Text>
           {groups.map(group => (

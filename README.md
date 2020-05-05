@@ -16,3 +16,4 @@ Personal blog and portfolio.
 - [ ] Try using tailwind.css
 - [ ] Try gatsby incremental builds
 - [ ] Try gatsby cloud, compare with netlify and zeit
+- [ ] Optimize import images properly
