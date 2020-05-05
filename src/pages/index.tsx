@@ -64,6 +64,9 @@ const useStyles = makeStyles(theme => ({
   cardMedia: {
     paddingTop: "56.25%", // 16:9
     borderBottom: "1px solid " + theme.palette.divider,
+    "&:hover": {
+      opacity: 0.75,
+    },
   },
   cardContent: {
     flexGrow: 1,
