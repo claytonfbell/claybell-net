@@ -197,7 +197,10 @@ function LayoutContent(props: Props) {
           onBackdropClick={() => setOpen(false)}
         >
           <div className={classes.toolbarIcon}>
-            <IconButton onClick={handleDrawerClose}>
+            <IconButton
+              onClick={handleDrawerClose}
+              aria-label="Hide Navigation"
+            >
               <ChevronLeftIcon />
             </IconButton>
           </div>
@@ -246,7 +249,11 @@ function LayoutContent(props: Props) {
                 )}
                 {currentTechnologies.map(t => (
                   <Tooltip arrow title={t.name} key={t.name}>
-                    <IconButton href={t.url} target={t.name}>
+                    <IconButton
+                      aria-label={t.name}
+                      href={t.url}
+                      target={t.name}
+                    >
                       {t.icon}
                     </IconButton>
                   </Tooltip>

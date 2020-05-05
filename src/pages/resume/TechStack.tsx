@@ -35,7 +35,7 @@ export default function TechStack() {
               .filter(x => x.group === group)
               .map(t => (
                 <Tooltip key={t.name} arrow title={t.name}>
-                  <IconButton href={t.url} target="_blank">
+                  <IconButton aria-label={t.name} href={t.url} target="_blank">
                     {t.icon}
                   </IconButton>
                 </Tooltip>
