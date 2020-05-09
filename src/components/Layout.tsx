@@ -13,7 +13,6 @@ import Paper from "@material-ui/core/Paper"
 import makeStyles from "@material-ui/core/styles/makeStyles"
 import useTheme from "@material-ui/core/styles/useTheme"
 import Toolbar from "@material-ui/core/Toolbar"
-import Tooltip from "@material-ui/core/Tooltip"
 import Typography from "@material-ui/core/Typography"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
@@ -33,6 +32,7 @@ import LayoutBase from "./LayoutBase"
 import SEOComponent from "./SEOComponent"
 import { useShowPrivate } from "./ShowPrivateProvider"
 import Spacer from "./Spacer"
+import TechItem from "./TechItem"
 
 const h1 = props => (
   <Box style={{ marginBottom: 12 }}>
@@ -248,15 +248,7 @@ function LayoutContent(props: Props) {
                   </Hidden>
                 )}
                 {currentTechnologies.map(t => (
-                  <Tooltip arrow title={t.name} key={t.name}>
-                    <IconButton
-                      aria-label={t.name}
-                      href={t.url}
-                      target={t.name}
-                    >
-                      {t.icon}
-                    </IconButton>
-                  </Tooltip>
+                  <TechItem technology={t} placement="left" />
                 ))}
               </Grid>
             </Grid>

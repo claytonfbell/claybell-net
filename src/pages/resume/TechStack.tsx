@@ -1,12 +1,6 @@
-import {
-  Box,
-  Grid,
-  IconButton,
-  makeStyles,
-  Tooltip,
-  Typography,
-} from "@material-ui/core"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import React from "react"
+import TechItem from "../../components/TechItem"
 import { technologies, TechnologyGroup } from "../../technologies"
 
 const useStyles = makeStyles(theme => ({
@@ -34,11 +28,7 @@ export default function TechStack() {
             {technologies
               .filter(x => x.group === group)
               .map(t => (
-                <Tooltip key={t.name} arrow title={t.name}>
-                  <IconButton aria-label={t.name} href={t.url} target="_blank">
-                    {t.icon}
-                  </IconButton>
-                </Tooltip>
+                <TechItem technology={t} />
               ))}
           </Grid>
         ))}
