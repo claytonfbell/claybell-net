@@ -80,7 +80,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(1),
   },
   cardLink: {
-    color: "#ffffff",
+    color: theme.palette.text.primary,
     textDecoration: "none",
     "&:hover": {
       textDecoration: "underline",
