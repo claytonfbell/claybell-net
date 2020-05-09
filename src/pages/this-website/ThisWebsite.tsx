@@ -31,7 +31,7 @@ export default function ThisWebsite(props) {
             relativePath: { eq: "claybell-net/lighthouse.png" }
           ) {
             childImageSharp {
-              fluid(maxHeight: 400) {
+              fluid(maxWidth: 400) {
                 ...GatsbyImageSharpFluid
               }
             }
