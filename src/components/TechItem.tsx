@@ -1,11 +1,18 @@
+import Box from "@material-ui/core/Box"
+import Button from "@material-ui/core/Button"
+import Dialog from "@material-ui/core/Dialog"
+import DialogContent from "@material-ui/core/DialogContent"
 import Grid from "@material-ui/core/Grid"
 import IconButton from "@material-ui/core/IconButton"
 import { Theme } from "@material-ui/core/styles/createMuiTheme"
+import makeStyles from "@material-ui/core/styles/makeStyles"
 import withStyles from "@material-ui/core/styles/withStyles"
 import Tooltip from "@material-ui/core/Tooltip"
+import useHandleState from "material-ui-pack/dist/hooks/useHandleState"
 import React from "react"
 import ReactMarkdown from "react-markdown"
 import { Technology } from "../technologies"
+import Spacer from "./Spacer"
 
 const HtmlTooltip = withStyles((theme: Theme) => ({
   tooltip: {
@@ -47,40 +54,74 @@ interface Props {
 }
 export default function TechItem(props: Props) {
   const t = props.technology
+  const classes = makeStyles((theme: Theme) => ({
+    root: {
+      "& h1": {
+        fontSize: 18,
+      },
+      "& a": {
+        color: theme.palette.primary.main,
+      },
+    },
+  }))()
+
+  const [open, handleOpen] = useHandleState<boolean>(false)
   return (
     <>
       <HtmlTooltip
         interactive
-        title={
-          <>
-            <Grid container spacing={1} alignItems="center">
-              <Grid item>{t.icon}</Grid>
-              <Grid item>
-                <h1>{t.name}</h1>
-              </Grid>
-            </Grid>
-            <p>
-              <ReactMarkdown
-                linkTarget="_blank"
-                source={
-                  t.description
-                    ? t.description
-                    : `_Oops! I've been busy, content coming soon..._`
-                }
-              />
-            </p>
-            {t.url && (
-              <a href={t.url} target="_blank">
-                {t.url}
-              </a>
-            )}
-          </>
-        }
+        title={<TechContent technology={t} />}
         placement={props.placement}
         arrow
       >
-        <IconButton aria-label={t.name}>{t.icon}</IconButton>
+        <IconButton onClick={handleOpen(true)} aria-label={t.name}>
+          {t.icon}
+        </IconButton>
       </HtmlTooltip>
+      <Dialog open={open} onClose={handleOpen(false)} fullWidth maxWidth="xs">
+        <DialogContent>
+          <Box className={classes.root}>
+            <TechContent technology={t} />
+          </Box>
+          <Spacer />
+          <Button
+            size="large"
+            onClick={handleOpen(false)}
+            variant="outlined"
+            color="default"
+          >
+            Close
+          </Button>
+        </DialogContent>
+      </Dialog>
+    </>
+  )
+}
+
+function TechContent({ technology }: { technology: Technology }) {
+  return (
+    <>
+      <Grid container spacing={1} alignItems="center">
+        <Grid item>{technology.icon}</Grid>
+        <Grid item>
+          <h1>{technology.name}</h1>
+        </Grid>
+      </Grid>
+      <p>
+        <ReactMarkdown
+          linkTarget="_blank"
+          source={
+            technology.description
+              ? technology.description
+              : `_Oops! I've been busy, content coming soon..._`
+          }
+        />
+      </p>
+      {technology.url && (
+        <a href={technology.url} target="_blank">
+          {technology.url}
+        </a>
+      )}
     </>
   )
 }
