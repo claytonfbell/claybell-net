@@ -119,7 +119,7 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
     icon: <PHPIcon />,
     url: "https://php.net",
     group: "Backend",
-    description: 'I learned PHP starting in 2000 while developing our first in-house shopping cart and CMS solution. In recent years I shifted to using PHP for REST APIs instead of for full stack.'
+    description: 'I learned PHP starting in 2000 while developing our first in-house shopping cart and CMS solution. In recent years I shifted to using PHP for REST APIs instead of for full stack.',
   },
   {
     name: "MySQL",
@@ -162,7 +162,7 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
     icon: <OracleIcon />,
     url: "https://www.oracle.com/database",
     group: "Backend",
-    description: 'I have two years experience with Oracle. I've designed almost a dozen new tables added to the Etix platform since joining their team.',
+    description: 'I have two years experience with Oracle. I have designed almost a dozen new tables added to the Etix platform since joining their team.',
   },
   {
     name: "AWS",
