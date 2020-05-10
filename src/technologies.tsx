@@ -114,12 +114,13 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
     group: "Front-End",
     description: `The first single-page-application I ever built was with jQuery and Backbone.js, but every front-end single page application I worked on from about 2013 to 2017 was created with Angular JS, and the majority of Interactive Ticketing is running on it.`,
   },
-  { name: "PHP", icon: <PHPIcon />, url: "https://php.net", group: "Backend" },
+  { name: "PHP", icon: <PHPIcon />, url: "https://php.net", group: "Backend", description: 'I learned PHP starting in 2000 while developing our first in-house shopping cart and CMS solution. In recent years I shifted to using PHP for REST APIs instead of for full stack.' },
   {
     name: "MySQL",
     icon: <MySQLIcon />,
     url: "https://www.mysql.com",
     group: "Backend",
+    description: 'I have nearly 20 years of experience with MySQL as the designer and maintainer of our platform. Our system relied on replication between multiple servers.',
   },
   {
     name: "iOS - Objective-C",
@@ -127,6 +128,7 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
     url:
       "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html",
     group: "Front-End",
+    description: 'I have an Enterprise Apple Membership. I wrote an iOS application in 2010 for scanning tickets. It gets regular updates with new features several times a year.',
   },
   {
     name: ".NET C#",
