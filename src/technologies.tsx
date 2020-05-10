@@ -169,12 +169,14 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
     icon: <AWSIcon />,
     url: "https://aws.amazon.com",
     group: "DevOps",
+    description: 'Around 2011 I moved all files in our platform to AWS S3 with references in our database. I recently added a similar system to the Etix platform. I also developed a multi docker container host in Elastic Beanstalk for hosting backend Java REST APIs.',
   },
   {
     name: "npm",
     icon: <NPMIcon />,
     url: "https://www.npmjs.com",
     group: "Front-End",
+    description: 'Several years experience with npm and yarn.',
   },
   {
     name: "Travis CI",
@@ -196,3 +198,9 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
     group: "DevOps",
   },
 ]
+// digital ocean
+// docker
+// python 
+// webpack 
+// node js
+// Linux 
