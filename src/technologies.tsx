@@ -114,7 +114,13 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
     group: "Front-End",
     description: `The first single-page-application I ever built was with jQuery and Backbone.js, but every front-end single page application I worked on from about 2013 to 2017 was created with Angular JS, and the majority of Interactive Ticketing is running on it.`,
   },
-  { name: "PHP", icon: <PHPIcon />, url: "https://php.net", group: "Backend", description: 'I learned PHP starting in 2000 while developing our first in-house shopping cart and CMS solution. In recent years I shifted to using PHP for REST APIs instead of for full stack.' },
+  { 
+    name: "PHP",
+    icon: <PHPIcon />,
+    url: "https://php.net",
+    group: "Backend",
+    description: 'I learned PHP starting in 2000 while developing our first in-house shopping cart and CMS solution. In recent years I shifted to using PHP for REST APIs instead of for full stack.'
+  },
   {
     name: "MySQL",
     icon: <MySQLIcon />,
@@ -135,24 +141,28 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
     icon: <CSharpIcon />,
     url: "https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet-framework",
     group: "Front-End",
+    description: 'I began learning C# around 2003 while working on a project we did for AAA Travel. I maintain a half dozen desktop applications in C# today.',
   },
   {
     name: "SQLite3",
     icon: <SQLite3Icon />,
     url: "https://www.sqlite.org",
     group: "Front-End",
+    description: 'This is a great lightweight database I use to synchronize data locally in our native ticket scanning and POS applications.',
   },
   {
     name: "Java",
     icon: <JavaIcon />,
     url: "https://www.java.com",
     group: "Backend",
+    description: 'After Etix purchased Interactive Ticketing in 2017 I started using Java to contribute on their side. I specialize in writing API endpoints for a new dashboard manager.',
   },
   {
     name: "Oracle DB",
     icon: <OracleIcon />,
     url: "https://www.oracle.com/database",
     group: "Backend",
+    description: 'I have two years experience with Oracle. I've designed almost a dozen new tables added to the Etix platform since joining their team.',
   },
   {
     name: "AWS",
