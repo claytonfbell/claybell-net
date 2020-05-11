@@ -190,9 +190,8 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
     icon: <JenkinsIcon />,
     url: "https://www.jenkins.io",
     group: "DevOps",
-    description: 'I've developed several pipelines for building, deploying, and testing both front-end and backend applications.',
+    description: 'I developed several pipelines for building, deploying, and testing both front-end and backend applications.',
   },
-
   {
     name: "Netlify",
     icon: <NetlifyIcon />,
