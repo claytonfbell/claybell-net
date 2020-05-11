@@ -183,12 +183,14 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
     icon: <TravisIcon />,
     url: "https://travis-ci.org",
     group: "DevOps",
+    description: 'Useful for open source side or side projects.',
   },
   {
     name: "Jenkins CI",
     icon: <JenkinsIcon />,
     url: "https://www.jenkins.io",
     group: "DevOps",
+    description: 'I've developed several pipelines for building, deploying, and testing both front-end and backend applications.',
   },
 
   {
@@ -196,6 +198,7 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
     icon: <NetlifyIcon />,
     url: "https://www.netlify.com/",
     group: "DevOps",
+    description: 'This site is all that I currently use it for.',
   },
 ]
 // digital ocean
@@ -204,3 +207,6 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
 // webpack 
 // node js
 // Linux 
+// Cypress
+// next js 
+// zeit 
