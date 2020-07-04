@@ -8,6 +8,7 @@ export type RoutePath =
   | "/scan-tickets"
   | "/tututix"
   | "/material-ui-pack"
+  | "/material-ui-bootstrap"
   | "/resume"
   | "/keyboards"
   | "/turnstile"
@@ -33,6 +34,14 @@ export const pages: Page[] = [
     stack: [],
   },
   {
+    route: "/material-ui-bootstrap",
+    displayOnHome: true,
+    title: "NPM material-ui-bootstrap",
+    image: "material-ui-pack/npm2.png",
+    description: `A light-weight set of bootstrap style components with material-ui.`,
+    stack: ["npm", "Travis CI", "React", "TypeScript", "Material UI"],
+  },
+  {
     route: "/turnstile",
     displayOnHome: true,
     title: "The Turnstile Project",
@@ -43,7 +52,7 @@ export const pages: Page[] = [
   {
     route: "/material-ui-pack",
     displayOnHome: true,
-    title: "New NPM Package",
+    title: "NPM material-ui-pack",
     image: "material-ui-pack/npm2.png",
     description: `An opinionated api for form state, dark-mode and more.`,
     stack: ["npm", "Travis CI", "React", "TypeScript", "Material UI"],
