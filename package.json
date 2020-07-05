@@ -29,7 +29,7 @@
     "gatsby-transformer-sharp": "^2.5.0",
     "github-markdown-css": "^4.0.0",
     "ink-spinner": "^3.0.1",
-    "material-ui-bootstrap": "^1.0.2",
+    "material-ui-bootstrap": "^1.0.3",
     "material-ui-pack": "^0.2.29",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
