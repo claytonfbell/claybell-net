@@ -37,7 +37,7 @@ export const pages: Page[] = [
     route: "/material-ui-bootstrap",
     displayOnHome: true,
     title: "NPM material-ui-bootstrap",
-    image: "material-ui-pack/npm2.png",
+    image: "material-ui-bootstrap/screen.jpg",
     description: `A light-weight set of bootstrap style components with material-ui.`,
     stack: ["npm", "Travis CI", "React", "TypeScript", "Material UI"],
   },
