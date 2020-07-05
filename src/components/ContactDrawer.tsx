@@ -1,5 +1,4 @@
 import Avatar from "@material-ui/core/Avatar"
-import Button from "@material-ui/core/Button"
 import Drawer from "@material-ui/core/Drawer"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
@@ -9,6 +8,7 @@ import ListItemText from "@material-ui/core/ListItemText"
 import MailIcon from "@material-ui/icons/Mail"
 import PhoneIcon from "@material-ui/icons/Phone"
 import makeStyles from "@material-ui/styles/makeStyles"
+import Button from "material-ui-bootstrap/dist/Button"
 import { useDarkMode } from "material-ui-pack/dist/DarkModeProvider"
 import React from "react"
 import Gravatar from "react-gravatar"
@@ -85,9 +85,9 @@ export default function Contact() {
   return (
     <div>
       <Button
-        variant="outlined"
         size="large"
-        color={darkMode ? "secondary" : "default"}
+        variant="outlined"
+        color="primary"
         onClick={toggleDrawer("left", true)}
       >
         Contact Info

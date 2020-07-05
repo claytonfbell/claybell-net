@@ -97,7 +97,7 @@ export default function PageCards() {
                 .filter(x => !x.isPrivate || showPrivate === "yes")
                 .map(page => (
                   <Grid item xs={10} sm={6} md={4} lg={3} key={page.route}>
-                    <Card className={classes.card}>
+                    <Card className={classes.card} variant="outlined">
                       <Link to={page.route}>
                         <CardMedia
                           className={classes.cardMedia}

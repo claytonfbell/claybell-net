@@ -165,7 +165,12 @@ function LayoutContent(props: Props) {
         imageSrc={currentPage.image}
       />
       <div className={classes.root}>
-        <AppBar position="absolute" className={classes.appBar} color="default">
+        <AppBar
+          position="absolute"
+          className={classes.appBar}
+          color="default"
+          elevation={1}
+        >
           <Toolbar>
             {isSmDown && (
               <IconButton
@@ -227,10 +232,7 @@ function LayoutContent(props: Props) {
           <Container maxWidth="lg" className={classes.container}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={11}>
-                <Paper
-                  style={{ padding: isLgUp ? 64 : 24 }}
-                  elevation={isLgUp ? 3 : undefined}
-                >
+                <Paper style={{ padding: isLgUp ? 64 : 24 }} elevation={1}>
                   <Typography component="div">
                     <MDXProvider components={LayoutComponents}>
                       {props.children}

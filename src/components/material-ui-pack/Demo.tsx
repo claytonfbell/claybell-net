@@ -1,6 +1,5 @@
 import { Grid } from "@material-ui/core"
 import DarkModeToggle from "material-ui-pack/dist/DarkModeToggle"
-import DatePicker from "material-ui-pack/dist/DatePicker"
 import Form from "material-ui-pack/dist/Form"
 import SelectRegion from "material-ui-pack/dist/SelectRegion"
 import SubmitButton from "material-ui-pack/dist/SubmitButton"
@@ -10,7 +9,7 @@ import React from "react"
 export default function Demo() {
   const [state, setState] = React.useState({
     firstName: "",
-    birthday: null,
+    phone: "",
     state: "OR",
   })
   function handleSubmit() {
@@ -26,7 +25,7 @@ export default function Demo() {
           setState={setState}
         >
           <TextField name="firstName" />
-          <DatePicker name="birthday" />
+          <TextField name="phone" phone />
           <SelectRegion country="US" countryIsoType="isoAlpha2" name="state" />
           <SubmitButton>Submit</SubmitButton>
         </Form>
