@@ -13,7 +13,7 @@ export default function Footer() {
       <Spacer size="large" />
       <Spacer size="large" />
       <Grid container justify="space-between" alignItems="center">
-        <Grid item>{`Clayton Bell <claytonfbell@gmail.com>`}</Grid>
+        <Grid item></Grid>
         <Grid item>
           <DarkModeToggle />
         </Grid>

@@ -29,8 +29,8 @@
     "gatsby-transformer-sharp": "^2.5.0",
     "github-markdown-css": "^4.0.0",
     "ink-spinner": "^3.0.1",
-    "material-ui-bootstrap": "^1.0.3",
-    "material-ui-pack": "^0.2.29",
+    "material-ui-bootstrap": "^1.0.8",
+    "material-ui-pack": "^0.2.31",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -50,6 +50,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "clean": "gatsby clean",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",

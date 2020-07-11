@@ -12,6 +12,7 @@ export type RoutePath =
   | "/resume"
   | "/keyboards"
   | "/turnstile"
+  | "/dev-toolkit"
 
 interface Page {
   route: RoutePath
@@ -32,6 +33,16 @@ export const pages: Page[] = [
     description: "My career path.",
     image: "resume/coffee.jpeg",
     stack: [],
+  },
+  {
+    isPrivate: true,
+    route: "/dev-toolkit",
+    displayOnHome: true,
+    title: "Developer Toolkit",
+    description:
+      "An internal documentation and set of tools to help co-workers.",
+    image: "dev-toolkit/dev-toolkit-screen.png",
+    stack: ["Electron", "Material UI", "React", "TypeScript", "mdx", "npm"],
   },
   {
     route: "/material-ui-bootstrap",
