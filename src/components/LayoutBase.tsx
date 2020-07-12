@@ -12,7 +12,7 @@ interface Props {
 }
 
 function ThemedContent({ children }: Props) {
-  const { createMuiThemeWithDarkMode } = useDarkMode()
+  const { createMuiThemeWithDarkMode, darkMode } = useDarkMode()
   return (
     <ThemeProvider
       theme={createMuiThemeWithDarkMode({

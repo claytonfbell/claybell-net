@@ -1,5 +1,4 @@
 import Box from "@material-ui/core/Box"
-import Button from "@material-ui/core/Button"
 import Dialog from "@material-ui/core/Dialog"
 import DialogContent from "@material-ui/core/DialogContent"
 import Grid from "@material-ui/core/Grid"
@@ -8,6 +7,7 @@ import { Theme } from "@material-ui/core/styles/createMuiTheme"
 import makeStyles from "@material-ui/core/styles/makeStyles"
 import withStyles from "@material-ui/core/styles/withStyles"
 import Tooltip from "@material-ui/core/Tooltip"
+import Button from "material-ui-bootstrap/dist/Button"
 import useHandleState from "material-ui-pack/dist/hooks/useHandleState"
 import React from "react"
 import ReactMarkdown from "react-markdown"
@@ -83,15 +83,16 @@ export default function TechItem(props: Props) {
           <Box className={classes.root}>
             <TechContent technology={t} />
           </Box>
-          <Spacer />
+          <Spacer size="large" />
           <Button
-            size="large"
+            fullWidth
             onClick={handleOpen(false)}
             variant="outlined"
-            color="default"
+            color="primary"
           >
             Close
           </Button>
+          <Spacer />
         </DialogContent>
       </Dialog>
     </>

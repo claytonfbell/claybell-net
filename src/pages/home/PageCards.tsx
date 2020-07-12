@@ -118,7 +118,6 @@ export default function PageCards() {
                             {page.title}
                           </Link>
                         </Typography>
-
                         <Typography>{page.description}</Typography>
                       </CardContent>
                     </Card>
