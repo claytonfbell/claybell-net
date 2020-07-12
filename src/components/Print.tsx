@@ -1,4 +1,4 @@
-import { Box } from "@material-ui/core"
+import { Box, useMediaQuery, useTheme } from "@material-ui/core"
 import {
   Document,
   Image,
@@ -64,6 +64,10 @@ const MyDocument = () => {
     "capture",
     null
   )
+
+  const theme = useTheme()
+  const isLgUp = useMediaQuery(theme.breakpoints.up("lg"))
+
   return (
     <Document>
       <Page size="letter" style={styles.page}>
@@ -78,7 +82,7 @@ const MyDocument = () => {
           </Link>
           <Text style={styles.spacer}> </Text>
 
-          {imageData !== null ? (
+          {isLgUp && imageData !== null ? (
             <>
               <Image src={imageData} />
               <Text style={styles.spacer}> </Text>
