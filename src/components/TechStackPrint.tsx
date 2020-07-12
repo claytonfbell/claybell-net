@@ -17,6 +17,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(3),
     padding: 24,
     borderRadius: 5,
+    width: 1250,
   },
   title: {
     fontSize: 18,
