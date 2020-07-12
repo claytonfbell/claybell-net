@@ -3,7 +3,12 @@ import React from "react"
 
 export default function OracleIcon() {
   return (
-    <SvgIcon viewBox="0 0 638.03 79.98" fontSize="large">
+    <SvgIcon
+      viewBox="0 0 638.03 79.98"
+      fontSize="large"
+      height="100"
+      width="100"
+    >
       <g id="layer1">
         <g id="g16337">
           <path

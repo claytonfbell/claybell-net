@@ -31,7 +31,7 @@ export type TechnologyName =
   | "Angular"
   | "PHP"
   | "MySQL"
-  | "iOS - Objective-C"
+  | "Objective-C"
   | ".NET C#"
   | "SQLite3"
   | "Java"
@@ -114,98 +114,107 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
     group: "Front-End",
     description: `The first single-page-application I ever built was with jQuery and Backbone.js, but every front-end single page application I worked on from about 2013 to 2017 was created with Angular JS, and the majority of Interactive Ticketing is running on it.`,
   },
-  { 
+  {
     name: "PHP",
     icon: <PHPIcon />,
     url: "https://php.net",
     group: "Backend",
-    description: 'I learned PHP starting in 2000 while developing our first in-house shopping cart and CMS solution. In recent years I shifted to using PHP for REST APIs instead of for full stack.',
+    description:
+      "I learned PHP starting in 2000 while developing our first in-house shopping cart and CMS solution. In recent years I shifted to using PHP for REST APIs instead of for full stack.",
   },
   {
     name: "MySQL",
     icon: <MySQLIcon />,
     url: "https://www.mysql.com",
     group: "Backend",
-    description: 'I have nearly 20 years of experience with MySQL as the designer and maintainer of our platform. Our system relied on replication between multiple servers.',
+    description:
+      "I have nearly 20 years of experience with MySQL as the designer and maintainer of our platform. Our system relied on replication between multiple servers.",
   },
   {
-    name: "iOS - Objective-C",
+    name: "Objective-C",
     icon: <ObjectiveCIcon />,
     url:
       "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html",
     group: "Front-End",
-    description: 'I have an Enterprise Apple Membership. I wrote an iOS application in 2010 for scanning tickets. It gets regular updates with new features several times a year.',
+    description:
+      "I have an Enterprise Apple Membership. I wrote an iOS application in 2010 for scanning tickets. It gets regular updates with new features several times a year.",
   },
   {
     name: ".NET C#",
     icon: <CSharpIcon />,
     url: "https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet-framework",
     group: "Front-End",
-    description: 'I began learning C# around 2003 while working on a project we did for AAA Travel. I maintain a half dozen desktop applications in C# today.',
+    description:
+      "I began learning C# around 2003 while working on a project we did for AAA Travel. I maintain a half dozen desktop applications in C# today.",
   },
   {
     name: "SQLite3",
     icon: <SQLite3Icon />,
     url: "https://www.sqlite.org",
     group: "Front-End",
-    description: 'This is a great lightweight database I use to synchronize data locally in our native ticket scanning and POS applications.',
+    description:
+      "This is a great lightweight database I use to synchronize data locally in our native ticket scanning and POS applications.",
   },
   {
     name: "Java",
     icon: <JavaIcon />,
     url: "https://www.java.com",
     group: "Backend",
-    description: 'After Etix purchased Interactive Ticketing in 2017 I started using Java to contribute on their side. I specialize in writing API endpoints for a new dashboard manager.',
+    description:
+      "After Etix purchased Interactive Ticketing in 2017 I started using Java to contribute on their side. I specialize in writing API endpoints for a new dashboard manager.",
   },
   {
     name: "Oracle DB",
     icon: <OracleIcon />,
     url: "https://www.oracle.com/database",
     group: "Backend",
-    description: 'I have two years experience with Oracle. I have designed almost a dozen new tables added to the Etix platform since joining their team.',
+    description:
+      "I have two years experience with Oracle. I have designed almost a dozen new tables added to the Etix platform since joining their team.",
   },
   {
     name: "AWS",
     icon: <AWSIcon />,
     url: "https://aws.amazon.com",
     group: "DevOps",
-    description: 'Around 2011 I moved all files in our platform to AWS S3 with references in our database. I recently added a similar system to the Etix platform. I also developed a multi docker container host in Elastic Beanstalk for hosting backend Java REST APIs.',
+    description:
+      "Around 2011 I moved all files in our platform to AWS S3 with references in our database. I recently added a similar system to the Etix platform. I also developed a multi docker container host in Elastic Beanstalk for hosting backend Java REST APIs.",
   },
   {
     name: "npm",
     icon: <NPMIcon />,
     url: "https://www.npmjs.com",
     group: "Front-End",
-    description: 'Several years experience with npm and yarn.',
+    description: "Several years experience with npm and yarn.",
   },
   {
     name: "Travis CI",
     icon: <TravisIcon />,
     url: "https://travis-ci.org",
     group: "DevOps",
-    description: 'Useful for open source side or side projects.',
+    description: "Useful for open source side or side projects.",
   },
   {
     name: "Jenkins CI",
     icon: <JenkinsIcon />,
     url: "https://www.jenkins.io",
     group: "DevOps",
-    description: 'I developed several pipelines for building, deploying, and testing both front-end and backend applications.',
+    description:
+      "I developed several pipelines for building, deploying, and testing both front-end and backend applications.",
   },
   {
     name: "Netlify",
     icon: <NetlifyIcon />,
     url: "https://www.netlify.com/",
     group: "DevOps",
-    description: 'This site is all that I currently use it for.',
+    description: "This site is all that I currently use it for.",
   },
 ]
 // digital ocean
 // docker
-// python 
-// webpack 
+// python
+// webpack
 // node js
-// Linux 
+// Linux
 // Cypress
-// next js 
-// zeit 
+// next js
+// zeit

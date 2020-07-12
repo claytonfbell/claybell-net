@@ -3,7 +3,7 @@ import React from "react"
 
 export default function AngularIcon() {
   return (
-    <SvgIcon viewBox="0 0 186.2 200" fontSize="large">
+    <SvgIcon viewBox="0 0 186.2 200" fontSize="large" height="100" width="100">
       <g>
         <polygon
           points="93.1 0 93.1 0 93.1 0 0 33.2 14.2 156.3 93.1 200 93.1 200 93.1 200 172 156.3 186.2 33.2 93.1 0"

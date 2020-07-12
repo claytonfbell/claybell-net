@@ -3,7 +3,7 @@ import React from "react"
 
 export default function ElectronIcon() {
   return (
-    <SvgIcon viewBox="0 0 256 256" fontSize="large">
+    <SvgIcon viewBox="0 0 256 256" fontSize="large" height="100" width="100">
       <g fill="none" fill-rule="evenodd">
         <circle fill="#2B2E3A" cx="128" cy="128" r="128" />
         <g fill="#9FEAF9" fill-rule="nonzero">

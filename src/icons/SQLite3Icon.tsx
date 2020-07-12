@@ -3,7 +3,12 @@ import React from "react"
 
 export default function SQLite3Icon() {
   return (
-    <SvgIcon viewBox="0 0 361.84 160.59" fontSize="large">
+    <SvgIcon
+      viewBox="0 0 361.84 160.59"
+      fontSize="large"
+      height="100"
+      width="100"
+    >
       <defs>
         <linearGradient
           id="linear-gradient"

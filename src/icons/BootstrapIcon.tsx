@@ -3,7 +3,7 @@ import React from "react"
 
 export default function BootstrapIcon() {
   return (
-    <SvgIcon viewBox="0 0 612 612" fontSize="large">
+    <SvgIcon viewBox="0 0 612 612" fontSize="large" height="100" width="100">
       <path
         d="M612,510c0,56.1-45.9,102-102,102H102C45.9,612,0,566.1,0,510V102C0,45.9,45.9,0,102,0H510c56.1,0,102,45.9,102,102Z"
         fill="#563d7c"

@@ -3,7 +3,12 @@ import React from "react"
 
 export default function PHPIcon() {
   return (
-    <SvgIcon viewBox="0 0 691.2 363.6" fontSize="large">
+    <SvgIcon
+      viewBox="0 0 691.2 363.6"
+      fontSize="large"
+      height="100"
+      width="100"
+    >
       <defs>
         <clipPath id="clip-path" transform="translate(-10 -10)">
           <path

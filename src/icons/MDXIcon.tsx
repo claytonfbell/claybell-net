@@ -3,7 +3,12 @@ import React from "react"
 
 export default function MDXIcon() {
   return (
-    <SvgIcon viewBox="0 0 111.5 35.21" fontSize="large">
+    <SvgIcon
+      viewBox="0 0 111.5 35.21"
+      fontSize="large"
+      height="100"
+      width="100"
+    >
       <g>
         <g>
           <path

@@ -90,7 +90,7 @@ export const pages: Page[] = [
     title: "Ticket Scanning Apps",
     image: "interactive-ticketing/scan.png",
     description: `These products were developeed several years ago for our Interactive Ticketing clients to scan tickets at their venues.`,
-    stack: ["PHP", "MySQL", "iOS - Objective-C", ".NET C#", "SQLite3"],
+    stack: ["PHP", "MySQL", "Objective-C", ".NET C#", "SQLite3"],
   },
   {
     isPrivate: true,

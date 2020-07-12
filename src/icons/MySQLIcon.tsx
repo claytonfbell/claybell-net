@@ -3,7 +3,12 @@ import React from "react"
 
 export default function MySQLIcon() {
   return (
-    <SvgIcon viewBox="0 0 168.03 114.11" fontSize="large">
+    <SvgIcon
+      viewBox="0 0 168.03 114.11"
+      fontSize="large"
+      height="100"
+      width="100"
+    >
       <path
         d="M635.87,359.77A7.42,7.42,0,0,0,634,360v.1H634a15.69,15.69,0,0,0,1.5,1.92c.37.75.7,1.49,1.08,2.24l.09-.09a2.63,2.63,0,0,0,1-2.34c-.28-.33-.32-.66-.56-1-.28-.47-.89-.71-1.26-1.08"
         transform="translate(-521.01 -348.2)"

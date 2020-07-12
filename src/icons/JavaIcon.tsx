@@ -3,7 +3,7 @@ import React from "react"
 
 export default function JavaIcon() {
   return (
-    <SvgIcon viewBox="0 0 48 48" fontSize="large">
+    <SvgIcon viewBox="0 0 48 48" fontSize="large" height="100" width="100">
       <path
         fill="#F44336"
         d="M23.65,24.898c-0.998-1.609-1.722-2.943-2.725-5.455C19.229,15.2,31.24,11.366,26.37,3.999c2.111,5.089-7.577,8.235-8.477,12.473C17.07,20.37,23.645,24.898,23.65,24.898z"

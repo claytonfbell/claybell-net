@@ -3,7 +3,12 @@ import React from "react"
 
 export default function JenkinsIcon() {
   return (
-    <SvgIcon viewBox="0 0 46.29 64.01" fontSize="large">
+    <SvgIcon
+      viewBox="0 0 46.29 64.01"
+      fontSize="large"
+      height="100"
+      width="100"
+    >
       <path
         d="M54.59,30.84a22.71,22.71,0,0,1-22.45,23,22.71,22.71,0,0,1-22.44-23,22.71,22.71,0,0,1,22.44-23,22.71,22.71,0,0,1,22.45,23"
         transform="translate(-9 0.01)"

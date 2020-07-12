@@ -3,7 +3,12 @@ import React from "react"
 
 export default function AWSIcon() {
   return (
-    <SvgIcon viewBox="14.7 23 42 26.2" fontSize="large">
+    <SvgIcon
+      viewBox="14.7 23 42 26.2"
+      fontSize="large"
+      height="100"
+      width="100"
+    >
       <polygon
         points="27.09 35.764 25.984 40.34 28.182 40.34 27.115 35.764"
         fill="#F7981F"

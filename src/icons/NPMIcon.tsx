@@ -3,7 +3,7 @@ import React from "react"
 
 export default function NPMIcon() {
   return (
-    <SvgIcon viewBox="0 0 48 48" fontSize="large">
+    <SvgIcon viewBox="0 0 48 48" fontSize="large" height="100" width="100">
       <path fill="#d50000" d="M0,15h48v17H24v3H13v-3H0V15z" />
       <path
         fill="#fff"

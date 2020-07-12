@@ -3,7 +3,7 @@ import React from "react"
 
 export default function NetlifyIcon() {
   return (
-    <SvgIcon viewBox="0 0 256 256" fontSize="large">
+    <SvgIcon viewBox="0 0 256 256" fontSize="large" height="100" width="100">
       <defs>
         <radialGradient
           cx="50%"

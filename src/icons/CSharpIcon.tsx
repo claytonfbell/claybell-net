@@ -3,7 +3,12 @@ import React from "react"
 
 export default function CSharpIcon() {
   return (
-    <SvgIcon viewBox="0 0 255.93 255.93" fontSize="large">
+    <SvgIcon
+      viewBox="0 0 255.93 255.93"
+      fontSize="large"
+      height="100"
+      width="100"
+    >
       <g>
         <rect width="255.93" height="255.93" fill="#672a7a" />
         <g>

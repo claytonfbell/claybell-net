@@ -1,7 +1,7 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import React from "react"
-import TechItem from "../../components/TechItem"
-import { technologies, TechnologyGroup } from "../../technologies"
+import { technologies, TechnologyGroup } from "../technologies"
+import TechItem from "./TechItem"
 
 const useStyles = makeStyles(theme => ({
   root: {

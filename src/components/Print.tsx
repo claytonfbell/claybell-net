@@ -1,6 +1,7 @@
 import { Box } from "@material-ui/core"
 import {
   Document,
+  Image,
   Link,
   Page,
   PDFViewer,
@@ -8,6 +9,7 @@ import {
   Text,
   View,
 } from "@react-pdf/renderer"
+import useStoredState from "material-ui-pack/dist/hooks/useStoredState"
 import React from "react"
 import { employment } from "../employment"
 import { technologies, TechnologyGroup } from "../technologies"
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
     lineHeight: 1.5,
   },
   h2: {
-    fontSize: 14,
+    fontSize: 18,
     color: "#aaaaaa",
   },
   spacer: { lineHeight: 1 },
@@ -58,7 +60,10 @@ const styles = StyleSheet.create({
 // Create Document Component
 const MyDocument = () => {
   const groups: TechnologyGroup[] = ["Front-End", "Backend", "DevOps"]
-
+  const [imageData, setImageData] = useStoredState<null | string>(
+    "capture",
+    null
+  )
   return (
     <Document>
       <Page size="letter" style={styles.page}>
@@ -72,19 +77,28 @@ const MyDocument = () => {
             https://claybell.net
           </Link>
           <Text style={styles.spacer}> </Text>
-          {groups.map(group => (
+
+          {imageData !== null ? (
             <>
-              <Text style={styles.h2}>{group}</Text>
-              <Text>
-                {technologies
-                  .filter(x => x.group === group)
-                  .map(x => x.name)
-                  .join(", ")}
-              </Text>
+              <Image src={imageData} />
               <Text style={styles.spacer}> </Text>
             </>
-          ))}
-
+          ) : (
+            <>
+              {groups.map(group => (
+                <>
+                  <Text style={styles.h2}>{group}</Text>
+                  <Text>
+                    {technologies
+                      .filter(x => x.group === group)
+                      .map(x => x.name)
+                      .join(", ")}
+                  </Text>
+                  <Text style={styles.spacer}> </Text>
+                </>
+              ))}
+            </>
+          )}
           {employment.map(e => (
             <>
               <Text style={styles.h2}>{e.employer}</Text>

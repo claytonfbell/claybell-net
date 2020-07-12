@@ -1,3 +1,4 @@
+import Loadable from "@loadable/component"
 import { Grid, Hidden, Link, Typography } from "@material-ui/core"
 import makeStyles from "@material-ui/core/styles/makeStyles"
 import EmailIcon from "@material-ui/icons/Email"
@@ -7,9 +8,11 @@ import Button from "material-ui-bootstrap/dist/Button"
 import React from "react"
 import Layout, { LayoutComponents } from "../components/Layout"
 import Spacer from "../components/Spacer"
+import TechStack from "../components/TechStack"
 import { employment } from "../employment"
 import ResumeToggle from "./resume/ResumeToggle"
-import TechStack from "./resume/TechStack"
+
+const TechStackPrint = Loadable(() => import("../components/TechStackPrint"))
 
 const useStyles = makeStyles(theme => ({
   contactLink: {
@@ -55,8 +58,8 @@ function ResumeContent() {
         </Grid>
       </Grid>
       <Spacer size="large" />
-
       <TechStack />
+      <TechStackPrint />
 
       {employment.map(e => (
         <>

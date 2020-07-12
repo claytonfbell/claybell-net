@@ -3,7 +3,7 @@ import React from "react"
 
 export default function TypeScriptIcon() {
   return (
-    <SvgIcon viewBox="0 0 48 48" fontSize="large">
+    <SvgIcon viewBox="0 0 48 48" fontSize="large" height="100" width="100">
       <rect width="36" height="36" x="6" y="6" fill="#1976d2" />
       <polygon
         fill="#fff"

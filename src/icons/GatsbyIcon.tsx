@@ -3,7 +3,7 @@ import React from "react"
 
 export default function GatsbyIcon() {
   return (
-    <SvgIcon viewBox="0 0 28 28" fontSize="large">
+    <SvgIcon viewBox="0 0 28 28" fontSize="large" height="100" width="100">
       <circle cx="14" cy="14" r="14" fill="#639" />
       <path
         fill="#fff"

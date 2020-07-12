@@ -3,7 +3,7 @@ import React from "react"
 
 export default function ObjectiveCIcon() {
   return (
-    <SvgIcon viewBox="0 0 64 64" fontSize="large">
+    <SvgIcon viewBox="0 0 64 64" fontSize="large" height="100" width="100">
       <linearGradient
         id="yJQpXcg5hnmPAoMSoLMbGa"
         x1="32"
