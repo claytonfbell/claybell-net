@@ -18,7 +18,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery"
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
 import MenuIcon from "@material-ui/icons/Menu"
 import { MDXProvider } from "@mdx-js/react"
-import { Link as GatsbyLink } from "gatsby"
+import { graphql, Link as GatsbyLink, StaticQuery } from "gatsby"
 import { useDarkMode } from "material-ui-pack/dist/DarkModeProvider"
 import React from "react"
 import SyntaxHighlighter from "react-syntax-highlighter"
@@ -123,6 +123,24 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+interface Data {
+  allImageSharp: {
+    edges: [
+      {
+        node: {
+          resize: {
+            src: string
+          }
+          fluid: {
+            originalName: string
+            src: string
+          }
+        }
+      }
+    ]
+  }
+}
+
 interface Props {
   children: React.ReactNode
   location: { pathname: RoutePath }
@@ -158,109 +176,141 @@ function LayoutContent(props: Props) {
   const { darkMode } = useDarkMode()
 
   return (
-    <>
-      <SEOComponent
-        title={currentPage.title}
-        description={currentPage.description}
-        imageSrc={currentPage.image}
-      />
-      <div className={classes.root}>
-        <AppBar
-          position="absolute"
-          className={classes.appBar}
-          color="default"
-          elevation={1}
-        >
-          <Toolbar>
-            {isSmDown && (
-              <IconButton
-                edge="start"
-                color="inherit"
-                aria-label="open drawer"
-                onClick={handleDrawerOpen}
-                className={classes.menuButton}
-              >
-                <MenuIcon />
-              </IconButton>
-            )}
-            <GatsbyLink to="/">
-              <img
-                style={{ height: 48, marginBottom: 0 }}
-                src={darkMode ? logoOnDark : logo}
-                alt="Clayton Bell"
-              />
-            </GatsbyLink>
-          </Toolbar>
-        </AppBar>
+    <StaticQuery
+      query={graphql`
+        {
+          allImageSharp(sort: { fields: [fluid___originalName], order: ASC }) {
+            edges {
+              node {
+                resize(width: 800, height: 600) {
+                  src
+                }
+                fluid {
+                  originalName
+                  src
+                }
+              }
+            }
+          }
+        }
+      `}
+      render={(data: Data) => {
+        const imageSrc = data.allImageSharp.edges.find(
+          x => currentPage.image.indexOf(x.node.fluid.originalName) !== -1
+        ).node.resize.src
 
-        <Drawer
-          variant={!isSmDown ? "permanent" : "temporary"}
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-          open={!isSmDown || open}
-          onBackdropClick={() => setOpen(false)}
-        >
-          <div className={classes.toolbarIcon}>
-            <IconButton
-              onClick={handleDrawerClose}
-              aria-label="Hide Navigation"
-            >
-              <ChevronLeftIcon />
-            </IconButton>
-          </div>
-          <Hidden smDown>
-            <Spacer />
-          </Hidden>
-          <List>
-            {pages
-              .filter(x => !x.isPrivate || showPrivate === "yes")
-              .map(page => (
-                <ListItem
-                  button
-                  component={GatsbyLink}
-                  to={page.route}
-                  selected={currentPage && page.route == currentPage.route}
-                >
-                  <ListItemText primary={page.title} />
-                </ListItem>
-              ))}
-          </List>
-        </Drawer>
-        <main className={classes.content}>
-          <div className={classes.appBarSpacer} />
-          <Container maxWidth="lg" className={classes.container}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={11}>
-                <Paper style={{ padding: isLgUp ? 64 : 24 }} elevation={1}>
-                  <Typography component="div">
-                    <MDXProvider components={LayoutComponents}>
-                      {props.children}
-                    </MDXProvider>
-                  </Typography>
-                </Paper>
-                <Hidden xsDown>
-                  <Footer />
+        return (
+          <>
+            <SEOComponent
+              title={currentPage.title}
+              description={currentPage.description}
+              imageSrc={imageSrc}
+            />
+            <div className={classes.root}>
+              <AppBar
+                position="absolute"
+                className={classes.appBar}
+                color="default"
+                elevation={1}
+              >
+                <Toolbar>
+                  {isSmDown && (
+                    <IconButton
+                      edge="start"
+                      color="inherit"
+                      aria-label="open drawer"
+                      onClick={handleDrawerOpen}
+                      className={classes.menuButton}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                  )}
+                  <GatsbyLink to="/">
+                    <img
+                      style={{ height: 48, marginBottom: 0 }}
+                      src={darkMode ? logoOnDark : logo}
+                      alt="Clayton Bell"
+                    />
+                  </GatsbyLink>
+                </Toolbar>
+              </AppBar>
+
+              <Drawer
+                variant={!isSmDown ? "permanent" : "temporary"}
+                classes={{
+                  paper: classes.drawerPaper,
+                }}
+                open={!isSmDown || open}
+                onBackdropClick={() => setOpen(false)}
+              >
+                <div className={classes.toolbarIcon}>
+                  <IconButton
+                    onClick={handleDrawerClose}
+                    aria-label="Hide Navigation"
+                  >
+                    <ChevronLeftIcon />
+                  </IconButton>
+                </div>
+                <Hidden smDown>
+                  <Spacer />
                 </Hidden>
-              </Grid>
-              <Grid item xs={12} sm={1} style={{ textAlign: "center" }}>
-                {currentTechnologies.length > 0 && (
-                  <Hidden smDown>
-                    <Typography variant="caption">Stack</Typography>
+                <List>
+                  {pages
+                    .filter(x => !x.isPrivate || showPrivate === "yes")
+                    .map(page => (
+                      <ListItem
+                        button
+                        component={GatsbyLink}
+                        to={page.route}
+                        selected={
+                          currentPage && page.route == currentPage.route
+                        }
+                      >
+                        <ListItemText primary={page.title} />
+                      </ListItem>
+                    ))}
+                </List>
+              </Drawer>
+              <main className={classes.content}>
+                <div className={classes.appBarSpacer} />
+                <Container maxWidth="lg" className={classes.container}>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} sm={11}>
+                      <Paper
+                        style={{ padding: isLgUp ? 64 : 24 }}
+                        elevation={1}
+                      >
+                        <Typography component="div">
+                          <MDXProvider components={LayoutComponents}>
+                            {props.children}
+                          </MDXProvider>
+                        </Typography>
+                      </Paper>
+                      <Hidden xsDown>
+                        <Footer />
+                      </Hidden>
+                    </Grid>
+                    <Grid item xs={12} sm={1} style={{ textAlign: "center" }}>
+                      {currentTechnologies.length > 0 && (
+                        <Hidden smDown>
+                          <Typography variant="caption">Stack</Typography>
+                        </Hidden>
+                      )}
+                      {currentTechnologies.map(t => (
+                        <TechItem technology={t} placement="left" />
+                      ))}
+                    </Grid>
+                  </Grid>
+                  <Hidden smUp>
+                    <Footer />
                   </Hidden>
-                )}
-                {currentTechnologies.map(t => (
-                  <TechItem technology={t} placement="left" />
-                ))}
-              </Grid>
-            </Grid>
-            <Hidden smUp>
-              <Footer />
-            </Hidden>
-          </Container>
-        </main>
-      </div>
-    </>
+                </Container>
+              </main>
+            </div>
+          </>
+        )
+      }}
+    />
   )
 }
 
