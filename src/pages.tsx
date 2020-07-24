@@ -13,6 +13,7 @@ export type RoutePath =
   | "/keyboards"
   | "/turnstile"
   | "/dev-toolkit"
+  | "/electoral-live"
 
 interface Page {
   route: RoutePath
@@ -33,6 +34,15 @@ export const pages: Page[] = [
     description: "My career path.",
     image: "resume/coffee.jpeg",
     stack: [],
+  },
+  {
+    isPrivate: false,
+    route: "/electoral-live",
+    displayOnHome: true,
+    title: "Electoral Vote Visualizer",
+    description: "A website that scrapes polling averages daily.",
+    image: "electoral-live/preview.png",
+    stack: ["Material UI", "React", "TypeScript", "Netlify"],
   },
   {
     isPrivate: true,
