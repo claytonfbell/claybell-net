@@ -27,7 +27,7 @@ interface Page {
 
 export const pages: Page[] = [
   {
-    isPrivate: true,
+    isPrivate: false,
     route: "/resume",
     displayOnHome: true,
     title: "My Resumé",
@@ -44,16 +44,16 @@ export const pages: Page[] = [
     image: "electoral-live/preview.png",
     stack: ["Material UI", "React", "TypeScript", "Netlify"],
   },
-  //   {
-  //     isPrivate: true,
-  //     route: "/dev-toolkit",
-  //     displayOnHome: true,
-  //     title: "Developer Toolkit",
-  //     description:
-  //       "An internal documentation and set of tools to help co-workers.",
-  //     image: "dev-toolkit/dev-toolkit-screen.png",
-  //     stack: ["Electron", "Material UI", "React", "TypeScript", "mdx", "npm"],
-  //   },
+  {
+    isPrivate: true,
+    route: "/dev-toolkit",
+    displayOnHome: true,
+    title: "Developer Toolkit",
+    description:
+      "An internal documentation and set of tools to help co-workers.",
+    image: "dev-toolkit/dev-toolkit-screen.png",
+    stack: ["Electron", "Material UI", "React", "TypeScript", "mdx", "npm"],
+  },
   {
     route: "/material-ui-bootstrap",
     displayOnHome: true,
@@ -102,23 +102,23 @@ export const pages: Page[] = [
     description: `These products were developeed several years ago for our Interactive Ticketing clients to scan tickets at their venues.`,
     stack: ["PHP", "MySQL", "Objective-C", ".NET C#", "SQLite3"],
   },
-  //   {
-  //     isPrivate: true,
-  //     route: "/tututix",
-  //     displayOnHome: true,
-  //     title: "TutuTix Dashboard",
-  //     image: "tutu/iphone.png",
-  //     description: `Helping build a new dashboard manager for the TutuTix platform.`,
-  //     stack: [
-  //       "Java",
-  //       "Oracle DB",
-  //       "AWS",
-  //       "Jenkins CI",
-  //       "React",
-  //       "TypeScript",
-  //       "Material UI",
-  //     ],
-  //   },
+  {
+    isPrivate: true,
+    route: "/tututix",
+    displayOnHome: true,
+    title: "TutuTix Dashboard",
+    image: "tutu/iphone.png",
+    description: `Helping build a new dashboard manager for the TutuTix platform.`,
+    stack: [
+      "Java",
+      "Oracle DB",
+      "AWS",
+      "Jenkins CI",
+      "React",
+      "TypeScript",
+      "Material UI",
+    ],
+  },
   {
     route: "/this-website",
     displayOnHome: true,

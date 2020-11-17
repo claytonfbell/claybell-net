@@ -10,7 +10,6 @@ import Layout, { LayoutComponents } from "../components/Layout"
 import Spacer from "../components/Spacer"
 import TechStack from "../components/TechStack"
 import { employment } from "../employment"
-import ResumeToggle from "./resume/ResumeToggle"
 
 const TechStackPrint = Loadable(() => import("../components/TechStackPrint"))
 
@@ -82,7 +81,7 @@ function ResumeContent() {
           <Spacer size="large" />
         </>
       ))}
-      <ResumeToggle />
+      {/* <ResumeToggle /> */}
     </>
   )
 }
