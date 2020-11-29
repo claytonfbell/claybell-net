@@ -133,7 +133,7 @@ export const pages: Page[] = [
     displayOnHome: true,
     title: "Keyboards",
     description: "Keyboards are fun.",
-    image: "keyboards/orange2.jpg",
+    image: "keyboards/green-m0110.jpg",
     stack: [],
   },
 ]
