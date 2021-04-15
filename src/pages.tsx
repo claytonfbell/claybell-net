@@ -42,7 +42,7 @@ export const pages: Page[] = [
     displayOnHome: true,
     title: "expendas.com",
     description: "A website for managing personal finance.",
-    image: "electoral-live/preview.png",
+    image: "expendas/expendas.png",
     stack: ["NextJS", "Material UI", "React", "TypeScript", "Vercel"],
   },
   {
