@@ -1,7 +1,7 @@
 import Grid from "@material-ui/core/Grid"
 import { graphql, StaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import { useDarkMode } from "material-ui-pack/dist/DarkModeProvider"
+import { useDarkMode } from "material-ui-pack"
 import React from "react"
 
 export default function ThisWebsite(props) {

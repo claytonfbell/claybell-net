@@ -1,5 +1,5 @@
 import Grid from "@material-ui/core/Grid"
-import DarkModeToggle from "material-ui-pack/dist/DarkModeToggle"
+import { DarkModeToggle } from "material-ui-pack"
 import React from "react"
 import Spacer from "./Spacer"
 

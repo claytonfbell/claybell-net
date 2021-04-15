@@ -9,7 +9,7 @@ import {
   Text,
   View,
 } from "@react-pdf/renderer"
-import useStoredState from "material-ui-pack/dist/hooks/useStoredState"
+import { useStoredState } from "material-ui-pack"
 import React from "react"
 import { employment } from "../employment"
 import { technologies, TechnologyGroup } from "../technologies"

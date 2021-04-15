@@ -4,8 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 const React = require("react")
-const DarkModeProvider = require("material-ui-pack/dist/DarkModeProvider")
-  .DarkModeProvider
+const DarkModeProvider = require("material-ui-pack").DarkModeProvider
 const ShowPrivateProvider = require("./src/components/ShowPrivateProvider")
   .ShowPrivateProvider
 

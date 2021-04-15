@@ -1,9 +1,11 @@
 import { Grid } from "@material-ui/core"
-import DarkModeToggle from "material-ui-pack/dist/DarkModeToggle"
-import Form from "material-ui-pack/dist/Form"
-import SelectRegion from "material-ui-pack/dist/SelectRegion"
-import SubmitButton from "material-ui-pack/dist/SubmitButton"
-import TextField from "material-ui-pack/dist/TextField"
+import {
+  DarkModeToggle,
+  Form,
+  SelectRegion,
+  SubmitButton,
+  TextField,
+} from "material-ui-pack"
 import React from "react"
 import Spacer from "../Spacer"
 

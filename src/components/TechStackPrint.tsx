@@ -1,6 +1,6 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import html2canvas from "html2canvas"
-import useStoredState from "material-ui-pack/dist/hooks/useStoredState"
+import { useStoredState } from "material-ui-pack"
 import React from "react"
 import { useTimeout } from "react-use"
 import { technologies, TechnologyGroup } from "../technologies"

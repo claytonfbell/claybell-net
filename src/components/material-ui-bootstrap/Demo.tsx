@@ -1,8 +1,13 @@
 import { Grid } from "@material-ui/core"
-import { Button, Card, CardContent, CardHeader } from "material-ui-bootstrap"
-import Alert from "material-ui-bootstrap/dist/Alert"
-import bootstrapColors from "material-ui-bootstrap/dist/bootstrapColors"
-import DarkModeToggle from "material-ui-pack/dist/DarkModeToggle"
+import {
+  Alert,
+  bootstrapColors,
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+} from "material-ui-bootstrap"
+import { DarkModeToggle } from "material-ui-pack"
 import React from "react"
 
 export default function Demo() {
