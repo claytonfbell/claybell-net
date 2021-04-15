@@ -14,6 +14,7 @@ export type RoutePath =
   | "/turnstile"
   | "/dev-toolkit"
   | "/electoral-live"
+  | "/expendas"
 
 interface Page {
   route: RoutePath
@@ -34,6 +35,15 @@ export const pages: Page[] = [
     description: "My career path.",
     image: "resume/coffee.jpeg",
     stack: [],
+  },
+  {
+    isPrivate: false,
+    route: "/expendas",
+    displayOnHome: true,
+    title: "expendas.com",
+    description: "A website for managing personal finance.",
+    image: "electoral-live/preview.png",
+    stack: ["NextJS", "Material UI", "React", "TypeScript", "Vercel"],
   },
   {
     isPrivate: false,

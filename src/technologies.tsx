@@ -11,6 +11,7 @@ import MaterialUIIcon from "./icons/MaterialUIIcon"
 import MDXIcon from "./icons/MDXIcon"
 import MySQLIcon from "./icons/MySQLIcon"
 import NetlifyIcon from "./icons/NetlifyIcon"
+import NextJsIcon from "./icons/NextJsIcon"
 import NPMIcon from "./icons/NPMIcon"
 import ObjectiveCIcon from "./icons/ObjectiveCIcon"
 import OracleIcon from "./icons/OracleIcon"
@@ -19,6 +20,7 @@ import ReactIcon from "./icons/ReactIcon"
 import SQLite3Icon from "./icons/SQLite3Icon"
 import TravisIcon from "./icons/TravisIcon"
 import TypeScriptIcon from "./icons/TypeScriptIcon"
+import VercelIcon from "./icons/VercelIcon"
 
 export type TechnologyName =
   | "TypeScript"
@@ -41,6 +43,8 @@ export type TechnologyName =
   | "Travis CI"
   | "Jenkins CI"
   | "Bootstrap"
+  | "Vercel"
+  | "NextJS"
 
 export type TechnologyGroup = "Front-End" | "Backend" | "DevOps"
 
@@ -207,6 +211,21 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
     url: "https://www.netlify.com/",
     group: "DevOps",
     description: "This site is all that I currently use it for.",
+  },
+  {
+    name: "NextJS",
+    icon: <NextJsIcon />,
+    url: "https://www.nextjs.com/",
+    group: "Front-End",
+    description:
+      "This is a terrific React framework, I hope to work with it more 😎.",
+  },
+  {
+    name: "Vercel",
+    icon: <VercelIcon />,
+    url: "https://www.vercel.com/",
+    group: "DevOps",
+    description: "Great option for hosting fast websites and apps.",
   },
 ]
 // digital ocean
