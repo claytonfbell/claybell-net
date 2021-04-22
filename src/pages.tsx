@@ -15,6 +15,7 @@ export type RoutePath =
   | "/dev-toolkit"
   | "/electoral-live"
   | "/expendas"
+  | "/developer-api"
 
 interface Page {
   route: RoutePath
@@ -35,6 +36,15 @@ export const pages: Page[] = [
     description: "My career path.",
     image: "resume/coffee.jpeg",
     stack: [],
+  },
+  {
+    isPrivate: false,
+    route: "/developer-api",
+    displayOnHome: true,
+    title: "Developer API",
+    description: "A Developer API produced and maintained for clients.",
+    image: "developer-api/api.png",
+    stack: ["PHP", "MySQL", "React"],
   },
   {
     isPrivate: false,
