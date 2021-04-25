@@ -31,7 +31,7 @@
     "github-markdown-css": "^4.0.0",
     "html2canvas": "^1.0.0-rc.5",
     "ink-spinner": "^3.0.1",
-    "material-ui-bootstrap": "^2.0.0",
+    "material-ui-bootstrap": "^2.2.1",
     "material-ui-pack": "^2.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
