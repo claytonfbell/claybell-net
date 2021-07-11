@@ -15,6 +15,7 @@ import HomeTemplate from "../components/HomeTemplate"
 import SEOComponent from "../components/SEOComponent"
 import logoOnDark from "../images/logo-on-dark.svg"
 import logo from "../images/logo.svg"
+import { technologies } from "../technologies"
 import PageCards from "./home/PageCards"
 
 export const query = graphql`
@@ -79,6 +80,9 @@ const IndexPageContent = (props: Props) => {
       <SEOComponent
         title="Clayton Bell"
         imageSrc={props.data.mobileDark.childImageSharp.fluid.src}
+        description={`Clayton Bell • Software Engineer • Portland Oregon ${technologies
+          .map(x => x.name)
+          .join(", ")}`}
       />
       <Paper className={classes.heroContent}>
         <Fade in={true}>
@@ -86,6 +90,9 @@ const IndexPageContent = (props: Props) => {
             <Fade in={showFirst}>
               <img src={darkMode ? logoOnDark : logo} alt="Clayton Bell" />
             </Fade>
+            <Typography variant="h5" align="center" paragraph>
+              Clayton Bell • Software Engineer • Portland Oregon
+            </Typography>
             <Typography variant="h5" align="center" paragraph>
               Experienced, Productive, Creative
             </Typography>
