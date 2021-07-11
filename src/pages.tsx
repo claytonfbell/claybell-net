@@ -16,6 +16,7 @@ export type RoutePath =
   | "/electoral-live"
   | "/expendas"
   | "/developer-api"
+  | "/status-monitor-app"
 
 interface Page {
   route: RoutePath
@@ -39,6 +40,22 @@ export const pages: Page[] = [
   },
   {
     isPrivate: false,
+    route: "/status-monitor-app",
+    displayOnHome: true,
+    title: "Status Monitor",
+    description: `I built a status monitor app to send alert notifications when a successful "ping" isn't received within a specified interval of time.`,
+    image: "status-monitor/status-monitor3.png",
+    stack: [
+      "NextJS",
+      "PostgreSQL",
+      "Prisma",
+      "NodeJS",
+      "DigitalOcean",
+      "TypeScript",
+    ],
+  },
+  {
+    isPrivate: false,
     route: "/developer-api",
     displayOnHome: true,
     title: "Developer API",
@@ -53,7 +70,7 @@ export const pages: Page[] = [
     title: "expendas.com",
     description: "A website for managing personal finance.",
     image: "expendas/expendas.png",
-    stack: ["NextJS", "Material UI", "React", "TypeScript", "Vercel"],
+    stack: ["NextJS", "Material UI", "React", "TypeScript", "Vercel", "NodeJS"],
   },
   {
     isPrivate: false,
@@ -112,7 +129,14 @@ export const pages: Page[] = [
     title: "Interactive Ticketing",
     image: "it-logo.png",
     description: `The primary software engineer that developed and maintained the platform from its founding.`,
-    stack: ["PHP", "MySQL", "Angular", "TypeScript", "Bootstrap"],
+    stack: [
+      "PHP",
+      "MySQL",
+      "Angular",
+      "TypeScript",
+      "Bootstrap",
+      "DigitalOcean",
+    ],
   },
   {
     route: "/scan-tickets",

@@ -1,3 +1,10 @@
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from "@material-ui/core"
 import AppBar from "@material-ui/core/AppBar"
 import Box from "@material-ui/core/Box"
 import Container from "@material-ui/core/Container"
@@ -51,6 +58,13 @@ const h3 = props => (
   </Box>
 )
 
+const table = props => <Table {...props} />
+const thead = props => <TableHead {...props} />
+const tbody = props => <TableBody {...props} />
+const tr = props => <TableRow {...props} />
+const td = props => <TableCell>{props.children}</TableCell>
+const th = props => <TableCell>{props.children}</TableCell>
+
 const a = props => <Link color="primary" {...props} target="_blank" />
 
 const code = props => (
@@ -63,6 +77,12 @@ export const LayoutComponents = {
   h3,
   a,
   code,
+  table,
+  thead,
+  tbody,
+  tr,
+  td,
+  th,
 }
 
 const drawerWidth = 240

@@ -3,6 +3,7 @@ import AngularIcon from "./icons/AngularIcon"
 import AWSIcon from "./icons/AWSIcon"
 import BootstrapIcon from "./icons/BootstrapIcon"
 import CSharpIcon from "./icons/CSharpIcon"
+import { DigitalOcean } from "./icons/DigitalOcean"
 import ElectronIcon from "./icons/ElectronIcon"
 import GatsbyIcon from "./icons/GatsbyIcon"
 import JavaIcon from "./icons/JavaIcon"
@@ -12,10 +13,13 @@ import MDXIcon from "./icons/MDXIcon"
 import MySQLIcon from "./icons/MySQLIcon"
 import NetlifyIcon from "./icons/NetlifyIcon"
 import NextJsIcon from "./icons/NextJsIcon"
+import { NodeJS } from "./icons/NodeJS"
 import NPMIcon from "./icons/NPMIcon"
 import ObjectiveCIcon from "./icons/ObjectiveCIcon"
 import OracleIcon from "./icons/OracleIcon"
 import PHPIcon from "./icons/PHPIcon"
+import { PostgreSQL } from "./icons/PostgreSQL"
+import { Prisma } from "./icons/Prisma"
 import ReactIcon from "./icons/ReactIcon"
 import SQLite3Icon from "./icons/SQLite3Icon"
 import TravisIcon from "./icons/TravisIcon"
@@ -45,6 +49,10 @@ export type TechnologyName =
   | "Bootstrap"
   | "Vercel"
   | "NextJS"
+  | "PostgreSQL"
+  | "Prisma"
+  | "DigitalOcean"
+  | "NodeJS"
 
 export type TechnologyGroup = "Front-End" | "Backend" | "DevOps"
 
@@ -208,14 +216,14 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
   {
     name: "Netlify",
     icon: <NetlifyIcon />,
-    url: "https://www.netlify.com/",
+    url: "https://www.netlify.com",
     group: "DevOps",
     description: "This site is all that I currently use it for.",
   },
   {
     name: "NextJS",
     icon: <NextJsIcon />,
-    url: "https://www.nextjs.com/",
+    url: "https://www.nextjs.com",
     group: "Front-End",
     description:
       "This is a terrific React framework, I hope to work with it more 😎.",
@@ -223,9 +231,37 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
   {
     name: "Vercel",
     icon: <VercelIcon />,
-    url: "https://www.vercel.com/",
+    url: "https://www.vercel.com",
     group: "DevOps",
     description: "Great option for hosting fast websites and apps.",
+  },
+  {
+    name: "PostgreSQL",
+    icon: <PostgreSQL />,
+    url: "https://www.postgresql.org",
+    group: "Backend",
+    description: "A powerful, open source object-relational database",
+  },
+  {
+    name: "Prisma",
+    icon: <Prisma />,
+    url: "https://www.prisma.io",
+    group: "Backend",
+    description: "Node.js and TypeScript ORM",
+  },
+  {
+    name: "DigitalOcean",
+    icon: <DigitalOcean />,
+    url: "https://www.digitalocean.com",
+    group: "DevOps",
+    description: "Cloud infrastructure provider",
+  },
+  {
+    name: "NodeJS",
+    icon: <NodeJS />,
+    url: "https://nodejs.org",
+    group: "Backend",
+    description: "JavaScript runtime",
   },
 ]
 // digital ocean
@@ -235,5 +271,4 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
 // node js
 // Linux
 // Cypress
-// next js
 // zeit
