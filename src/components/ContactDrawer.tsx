@@ -1,3 +1,4 @@
+import { Grid, Hidden, IconButton } from "@material-ui/core"
 import Avatar from "@material-ui/core/Avatar"
 import Drawer from "@material-ui/core/Drawer"
 import List from "@material-ui/core/List"
@@ -5,8 +6,10 @@ import ListItem from "@material-ui/core/ListItem"
 import ListItemAvatar from "@material-ui/core/ListItemAvatar"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
 import ListItemText from "@material-ui/core/ListItemText"
+import GitHubButton from "@material-ui/icons/GitHub"
 import MailIcon from "@material-ui/icons/Mail"
 import PhoneIcon from "@material-ui/icons/Phone"
+import TwitterIcon from "@material-ui/icons/Twitter"
 import makeStyles from "@material-ui/styles/makeStyles"
 import { Button } from "material-ui-bootstrap"
 import { useDarkMode } from "material-ui-pack"
@@ -83,18 +86,30 @@ export default function Contact() {
   )
 
   return (
-    <div>
-      <Button
-        size="large"
-        variant="outlined"
-        color="primary"
-        onClick={toggleDrawer("left", true)}
-      >
-        Contact Info
-      </Button>
+    <>
+      <Grid container spacing={2}>
+        <Grid item>
+          <Button
+            size="large"
+            variant="outlined"
+            color="primary"
+            onClick={toggleDrawer("left", true)}
+          >
+            Contact<Hidden xsDown> Info</Hidden>
+          </Button>
+        </Grid>
+        <Grid item>
+          <IconButton color="primary" href="https://github.com/claytonfbell">
+            <GitHubButton />
+          </IconButton>
+          <IconButton color="primary" href="https://twitter.com/claytonfbell">
+            <TwitterIcon />
+          </IconButton>
+        </Grid>
+      </Grid>
       <Drawer open={state.left} onClose={toggleDrawer("left", false)}>
         {sideList("left")}
       </Drawer>
-    </div>
+    </>
   )
 }

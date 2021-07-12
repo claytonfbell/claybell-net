@@ -1,3 +1,4 @@
+import { Hidden } from "@material-ui/core"
 import Box from "@material-ui/core/Box"
 import Container from "@material-ui/core/Container"
 import Fade from "@material-ui/core/Fade"
@@ -13,7 +14,9 @@ import useTimeout from "react-use/lib/useTimeout"
 import Contact from "../components/ContactDrawer"
 import HomeTemplate from "../components/HomeTemplate"
 import SEOComponent from "../components/SEOComponent"
+// @ts-ignore
 import logoOnDark from "../images/logo-on-dark.svg"
+// @ts-ignore
 import logo from "../images/logo.svg"
 import { technologies } from "../technologies"
 import PageCards from "./home/PageCards"
@@ -36,6 +39,9 @@ const useStyles = makeStyles(theme => ({
   },
   heroButtons: {
     marginTop: theme.spacing(2),
+  },
+  headline: {
+    fontSize: 24,
   },
 }))
 
@@ -90,12 +96,27 @@ const IndexPageContent = (props: Props) => {
             <Fade in={showFirst}>
               <img src={darkMode ? logoOnDark : logo} alt="Clayton Bell" />
             </Fade>
-            <Typography variant="h5" align="center" paragraph>
-              Clayton Bell • Software Engineer • Portland Oregon
-            </Typography>
-            <Typography variant="h5" align="center" paragraph>
-              Experienced, Productive, Creative
-            </Typography>
+            <Hidden xsDown>
+              <NoBreak>
+                <Typography align="center" className={classes.headline}>
+                  Software Engineer • Portland Oregon
+                </Typography>
+              </NoBreak>
+            </Hidden>
+            <Hidden smUp>
+              <Typography align="center" className={classes.headline}>
+                Software Engineer
+              </Typography>
+              <Typography align="center" className={classes.headline}>
+                Portland Oregon
+              </Typography>
+            </Hidden>
+            <Hidden xsDown>
+              <Typography align="center" className={classes.headline}>
+                Experienced, Productive, Creative
+              </Typography>
+            </Hidden>
+            <br />
             <Box textAlign="center">
               <Gravatar
                 style={{
@@ -126,4 +147,8 @@ export default function IndexPage(props) {
       <IndexPageContent {...props} />
     </HomeTemplate>
   )
+}
+
+function NoBreak({ children }: { children: React.ReactNode }) {
+  return <span style={{ whiteSpace: "nowrap" }}>{children}</span>
 }

@@ -312,9 +312,9 @@ function LayoutContent(props: Props) {
                     </Grid>
                     <Grid item xs={12} sm={1} style={{ textAlign: "center" }}>
                       {currentTechnologies.length > 0 && (
-                        <Hidden smDown>
-                          <Typography variant="caption">Stack</Typography>
-                        </Hidden>
+                        <Box>
+                          <Typography variant="caption">Stack Used</Typography>
+                        </Box>
                       )}
                       {currentTechnologies.map(t => (
                         <TechItem technology={t} placement="left" />
