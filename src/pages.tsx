@@ -69,7 +69,7 @@ export const pages: Page[] = [
     isPrivate: false,
     route: "/expendas",
     displayOnHome: true,
-    title: "expendas.com",
+    title: "Expendas",
     description: "A website for managing personal finance.",
     image: "expendas/expendas.png",
     stack: ["NextJS", "Material UI", "React", "TypeScript", "Vercel", "NodeJS"],
