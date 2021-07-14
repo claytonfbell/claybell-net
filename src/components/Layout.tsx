@@ -30,7 +30,9 @@ import { useDarkMode } from "material-ui-pack"
 import React from "react"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { vs2015 } from "react-syntax-highlighter/dist/esm/styles/hljs"
+// @ts-ignore
 import logoOnDark from "../images/logo-on-dark.svg"
+// @ts-ignore
 import logo from "../images/logo.svg"
 import { pages, RoutePath } from "../pages"
 import { technologies, Technology } from "../technologies"
@@ -170,6 +172,7 @@ function LayoutContent(props: Props) {
   const classes = useStyles()
 
   const theme = useTheme()
+  const isXsDown = useMediaQuery(theme.breakpoints.down("xs"))
   const isSmDown = useMediaQuery(theme.breakpoints.down("sm"))
   const isLgUp = useMediaQuery(theme.breakpoints.up("lg"))
 
@@ -294,33 +297,57 @@ function LayoutContent(props: Props) {
               <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={11}>
-                      <Paper
-                        style={{ padding: isLgUp ? 64 : 24 }}
-                        elevation={1}
-                      >
-                        <Typography component="div">
-                          <MDXProvider components={LayoutComponents}>
-                            {props.children}
-                          </MDXProvider>
-                        </Typography>
-                      </Paper>
-                      <Hidden xsDown>
-                        <Footer />
-                      </Hidden>
-                    </Grid>
-                    <Grid item xs={12} sm={1} style={{ textAlign: "center" }}>
-                      {currentTechnologies.length > 0 && (
-                        <Box>
-                          <Typography variant="caption">Stack Used</Typography>
-                        </Box>
-                      )}
-                      {currentTechnologies.map(t => (
-                        <TechItem technology={t} placement="left" />
-                      ))}
-                    </Grid>
-                  </Grid>
+                  <Paper elevation={1}>
+                    <Box padding={isLgUp ? 6 : isXsDown ? 2 : 4}>
+                      <Grid container spacing={3}>
+                        <Grid item xs={12} md={10}>
+                          <Box>
+                            <Typography component="div">
+                              <MDXProvider components={LayoutComponents}>
+                                {props.children}
+                              </MDXProvider>
+                            </Typography>
+                          </Box>
+                        </Grid>
+                        <Grid
+                          item
+                          xs={12}
+                          md={2}
+                          style={{
+                            textAlign: isSmDown ? "center" : "right",
+                          }}
+                        >
+                          {currentTechnologies.length > 0 && (
+                            <div
+                              style={
+                                !isSmDown
+                                  ? {
+                                      display: "inline-block",
+                                      width: 90,
+                                      textAlign: "right",
+                                    }
+                                  : undefined
+                              }
+                            >
+                              <Typography variant="caption" component="div">
+                                Stack Used
+                              </Typography>
+                              {currentTechnologies.map(t => (
+                                <TechItem
+                                  key={t.name}
+                                  technology={t}
+                                  placement="left"
+                                />
+                              ))}
+                            </div>
+                          )}
+                        </Grid>
+                      </Grid>
+                    </Box>
+                  </Paper>
+                  <Hidden xsDown>
+                    <Footer />
+                  </Hidden>
                   <Hidden smUp>
                     <Footer />
                   </Hidden>

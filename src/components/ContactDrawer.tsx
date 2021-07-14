@@ -87,7 +87,7 @@ export default function Contact() {
 
   return (
     <>
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         <Grid item>
           <Button
             size="large"

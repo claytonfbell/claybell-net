@@ -47,6 +47,8 @@ export const pages: Page[] = [
     image: "status-monitor/status-monitor3.png",
     stack: [
       "NextJS",
+      "React",
+      "Material UI",
       "PostgreSQL",
       "Prisma",
       "NodeJS",
