@@ -14,19 +14,15 @@ Its a fairly opinionated API for handling form state, dark-mode, and some useful
 
 Source code here: <https://github.com/claytonfbell/material-ui-pack>
 
-## Demo
+## Demo Form
 
 <Demo />
 <Spacer size="large" />
 
 ```tsx
-import { Grid } from "@material-ui/core"
-import { DarkModeToggle } from "material-ui-pack"
+import { Box } from "@material-ui/core"
 import { Form } from "material-ui-pack"
-import { SelectRegion } from "material-ui-pack"
-import { SubmitButton } from "material-ui-pack"
-import { TextField } from "material-ui-pack"
-import React from "react"
+import React, { useState } from "react"
 
 export default function Demo() {
   const [state, setState] = React.useState({
@@ -34,28 +30,28 @@ export default function Demo() {
     phone: "",
     state: "OR",
   })
+  const [error, setError] = useState<string>()
   function handleSubmit() {
-    alert(`It worked! ${JSON.stringify(state)}`)
+    setError(`It worked! ${JSON.stringify(state)}`)
   }
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} sm={6}>
-        <Form
-          onSubmit={handleSubmit}
-          margin="normal"
-          state={state}
-          setState={setState}
-        >
-          <TextField name="firstName" />
-          <TextField name="phone" phone />
-          <SelectRegion country="US" countryIsoType="isoAlpha2" name="state" />
-          <SubmitButton>Submit</SubmitButton>
-        </Form>
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <DarkModeToggle />
-      </Grid>
-    </Grid>
+    <Box maxWidth={400}>
+      <Form
+        onSubmit={handleSubmit}
+        state={state}
+        setState={setState}
+        error={error}
+        schema={{
+          firstName: "capitalize",
+          phone: "phone",
+          state: {
+            type: "region",
+            countryIsoType: "isoAlpha2",
+            country: "US",
+          },
+        }}
+      />
+    </Box>
   )
 }
 ```

@@ -1,13 +1,6 @@
-import { Grid } from "@material-ui/core"
-import {
-  DarkModeToggle,
-  Form,
-  SelectRegion,
-  SubmitButton,
-  TextField,
-} from "material-ui-pack"
-import React from "react"
-import Spacer from "../Spacer"
+import { Box } from "@material-ui/core"
+import { Form } from "material-ui-pack"
+import React, { useState } from "react"
 
 export default function Demo() {
   const [state, setState] = React.useState({
@@ -15,26 +8,27 @@ export default function Demo() {
     phone: "",
     state: "OR",
   })
+  const [error, setError] = useState<string>()
   function handleSubmit() {
-    alert(`It worked! ${JSON.stringify(state)}`)
+    setError(`It worked! ${JSON.stringify(state)}`)
   }
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} sm={4}>
-        <Form
-          onSubmit={handleSubmit}
-          margin="normal"
-          state={state}
-          setState={setState}
-        >
-          <DarkModeToggle />
-          <TextField name="firstName" />
-          <TextField name="phone" phone />
-          <SelectRegion country="US" countryIsoType="isoAlpha2" name="state" />
-          <Spacer />
-          <SubmitButton>Submit</SubmitButton>
-        </Form>
-      </Grid>
-    </Grid>
+    <Box maxWidth={400}>
+      <Form
+        onSubmit={handleSubmit}
+        state={state}
+        setState={setState}
+        error={error}
+        schema={{
+          firstName: "capitalize",
+          phone: "phone",
+          state: {
+            type: "region",
+            countryIsoType: "isoAlpha2",
+            country: "US",
+          },
+        }}
+      />
+    </Box>
   )
 }

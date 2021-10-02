@@ -1,7 +1,10 @@
 import { Grid } from "@material-ui/core"
 import React from "react"
+// @ts-ignore
 import desktop from "../../images/tutu/desktop-cal.png"
+// @ts-ignore
 import ipad from "../../images/tutu/ipad.png"
+// @ts-ignore
 import iphone from "../../images/tutu/iphone.png"
 import ClickableImage from "../scan-tickets/ClickableImage"
 
