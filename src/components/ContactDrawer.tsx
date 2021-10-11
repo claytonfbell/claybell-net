@@ -1,32 +1,21 @@
-import { Grid, Hidden, IconButton } from "@material-ui/core"
-import Avatar from "@material-ui/core/Avatar"
-import Drawer from "@material-ui/core/Drawer"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemAvatar from "@material-ui/core/ListItemAvatar"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
-import ListItemText from "@material-ui/core/ListItemText"
-import GitHubButton from "@material-ui/icons/GitHub"
-import MailIcon from "@material-ui/icons/Mail"
-import PhoneIcon from "@material-ui/icons/Phone"
-import TwitterIcon from "@material-ui/icons/Twitter"
-import makeStyles from "@material-ui/styles/makeStyles"
+import GitHubButton from "@mui/icons-material/GitHub"
+import MailIcon from "@mui/icons-material/Mail"
+import PhoneIcon from "@mui/icons-material/Phone"
+import TwitterIcon from "@mui/icons-material/Twitter"
+import { Box, Grid, Hidden, IconButton } from "@mui/material"
+import Avatar from "@mui/material/Avatar"
+import Drawer from "@mui/material/Drawer"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import ListItemAvatar from "@mui/material/ListItemAvatar"
+import ListItemIcon from "@mui/material/ListItemIcon"
+import ListItemText from "@mui/material/ListItemText"
 import { Button } from "material-ui-bootstrap"
 import { useDarkMode } from "material-ui-pack"
 import React from "react"
 import Gravatar from "react-gravatar"
 
-const useStyles = makeStyles({
-  list: {
-    minWidth: 300,
-  },
-  fullList: {
-    width: "auto",
-  },
-})
-
 export default function Contact() {
-  const classes = useStyles()
   const [state, setState] = React.useState({
     left: false,
   })
@@ -45,8 +34,10 @@ export default function Contact() {
   const { darkMode } = useDarkMode()
 
   const sideList = side => (
-    <div
-      className={classes.list}
+    <Box
+      sx={{
+        minWidth: 300,
+      }}
       role="presentation"
       onClick={toggleDrawer(side, false)}
       onKeyDown={toggleDrawer(side, false)}
@@ -82,7 +73,7 @@ export default function Contact() {
           </ListItemText>
         </ListItem>
       </List>
-    </div>
+    </Box>
   )
 
   return (
@@ -95,7 +86,7 @@ export default function Contact() {
             color="primary"
             onClick={toggleDrawer("left", true)}
           >
-            Contact<Hidden xsDown> Info</Hidden>
+            Contact<Hidden smDown> Info</Hidden>
           </Button>
         </Grid>
         <Grid item>

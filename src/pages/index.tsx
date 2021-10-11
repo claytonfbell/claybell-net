@@ -1,11 +1,10 @@
-import { Hidden } from "@material-ui/core"
-import Box from "@material-ui/core/Box"
-import Container from "@material-ui/core/Container"
-import Fade from "@material-ui/core/Fade"
-import Grid from "@material-ui/core/Grid"
-import Paper from "@material-ui/core/Paper"
-import makeStyles from "@material-ui/core/styles/makeStyles"
-import Typography from "@material-ui/core/Typography"
+import { Hidden, useTheme } from "@mui/material"
+import Box from "@mui/material/Box"
+import Container from "@mui/material/Container"
+import Fade from "@mui/material/Fade"
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
+import Typography from "@mui/material/Typography"
 import { graphql } from "gatsby"
 import { useDarkMode } from "material-ui-pack"
 import React from "react"
@@ -32,21 +31,6 @@ export const query = graphql`
     }
   }
 `
-
-const useStyles = makeStyles(theme => ({
-  heroContent: {
-    padding: theme.spacing(2),
-    [theme.breakpoints.up("md")]: {
-      padding: theme.spacing(6),
-    },
-  },
-  heroButtons: {
-    marginTop: theme.spacing(2),
-  },
-  headline: {
-    fontSize: 24,
-  },
-}))
 
 interface Props {
   data: {
@@ -80,7 +64,7 @@ interface Props {
 }
 
 const IndexPageContent = (props: Props) => {
-  const classes = useStyles()
+  const theme = useTheme()
   const showFirst = useTimeout(50)
   const { darkMode } = useDarkMode()
 
@@ -93,29 +77,41 @@ const IndexPageContent = (props: Props) => {
           .map(x => x.name)
           .join(", ")}`}
       />
-      <Paper className={classes.heroContent}>
+      <Paper
+        sx={{
+          padding: theme.spacing(2),
+          [theme.breakpoints.up("md")]: {
+            padding: theme.spacing(6),
+          },
+        }}
+      >
         <Fade in={true}>
           <Container maxWidth="sm">
             <Fade in={showFirst}>
               <img src={darkMode ? logoOnDark : logo} alt="Clayton Bell" />
             </Fade>
-            <Hidden xsDown>
+            <Hidden smDown>
               <NoBreak>
-                <Typography align="center" className={classes.headline}>
+                <Typography
+                  align="center"
+                  sx={{
+                    fontSize: 24,
+                  }}
+                >
                   Software Engineer • Portland Oregon
                 </Typography>
               </NoBreak>
             </Hidden>
             <Hidden smUp>
-              <Typography align="center" className={classes.headline}>
+              <Typography align="center" sx={{ fontSize: 24 }}>
                 Software Engineer
               </Typography>
-              <Typography align="center" className={classes.headline}>
+              <Typography align="center" sx={{ fontSize: 24 }}>
                 Portland Oregon
               </Typography>
             </Hidden>
-            <Hidden xsDown>
-              <Typography align="center" className={classes.headline}>
+            <Hidden smDown>
+              <Typography align="center" sx={{ fontSize: 24 }}>
                 Experienced, Productive, Creative
               </Typography>
             </Hidden>
@@ -129,13 +125,13 @@ const IndexPageContent = (props: Props) => {
                 email={`claytonfbell@gmail.com`}
               />
             </Box>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
+            <Box sx={{ marginTop: theme.spacing(2) }}>
+              <Grid container spacing={2} justifyContent="center">
                 <Grid item>
                   <Contact />
                 </Grid>
               </Grid>
-            </div>
+            </Box>
           </Container>
         </Fade>
       </Paper>

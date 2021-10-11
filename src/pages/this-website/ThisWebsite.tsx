@@ -1,4 +1,4 @@
-import Grid from "@material-ui/core/Grid"
+import Grid from "@mui/material/Grid"
 import { graphql, StaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import { useDarkMode } from "material-ui-pack"

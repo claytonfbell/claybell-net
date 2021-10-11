@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core"
+import { Grid } from "@mui/material"
 import React from "react"
 // @ts-ignore
 import desktop from "../../images/tutu/desktop-cal.png"

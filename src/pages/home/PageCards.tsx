@@ -1,11 +1,11 @@
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import CardMedia from "@material-ui/core/CardMedia"
-import Container from "@material-ui/core/Container"
-import Fade from "@material-ui/core/Fade"
-import Grid from "@material-ui/core/Grid"
-import makeStyles from "@material-ui/core/styles/makeStyles"
-import Typography from "@material-ui/core/Typography"
+import { styled, useTheme } from "@mui/material"
+import Card from "@mui/material/Card"
+import CardContent from "@mui/material/CardContent"
+import CardMedia from "@mui/material/CardMedia"
+import Container from "@mui/material/Container"
+import Fade from "@mui/material/Fade"
+import Grid from "@mui/material/Grid"
+import Typography from "@mui/material/Typography"
 import { graphql, Link, StaticQuery } from "gatsby"
 import React from "react"
 import useTimeout from "react-use/lib/useTimeout"
@@ -13,38 +13,7 @@ import Footer from "../../components/Footer"
 import { useShowPrivate } from "../../components/ShowPrivateProvider"
 import { pages } from "../../pages"
 
-const useStyles = makeStyles(theme => ({
-  cardGrid: {
-    paddingTop: theme.spacing(6),
-    paddingBottom: theme.spacing(6),
-  },
-  card: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-  },
-  cardMedia: {
-    paddingTop: "56.25%", // 16:9
-    borderBottom: "1px solid " + theme.palette.divider,
-    "&:hover": {
-      opacity: 0.75,
-    },
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(2),
-  },
-  cardLink: {
-    color: theme.palette.text.primary,
-    textDecoration: "none",
-    "&:hover": {
-      textDecoration: "underline",
-    },
-  },
-}))
+const StyledLink = styled(Link)``
 
 interface Data {
   allImageSharp: {
@@ -65,10 +34,9 @@ interface Data {
 }
 
 export default function PageCards() {
-  const classes = useStyles()
   const showSecond = useTimeout(250)
   const { showPrivate } = useShowPrivate()
-
+  const theme = useTheme()
   return (
     <StaticQuery
       query={graphql`
@@ -89,18 +57,37 @@ export default function PageCards() {
         }
       `}
       render={(data: Data) => (
-        <Container className={classes.cardGrid} maxWidth="md">
+        <Container
+          sx={{
+            paddingTop: theme.spacing(6),
+            paddingBottom: theme.spacing(6),
+          }}
+          maxWidth="md"
+        >
           <Fade in={showSecond}>
-            <Grid container spacing={2} justify="center">
+            <Grid container spacing={2} justifyContent="center">
               {pages
                 .filter(x => x.displayOnHome)
                 .filter(x => !x.isPrivate || showPrivate === "yes")
                 .map(page => (
                   <Grid item xs={10} sm={6} md={4} lg={3} key={page.route}>
-                    <Card className={classes.card} variant="outlined">
+                    <Card
+                      sx={{
+                        height: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                      }}
+                      variant="outlined"
+                    >
                       <Link to={page.route}>
                         <CardMedia
-                          className={classes.cardMedia}
+                          sx={{
+                            paddingTop: "56.25%", // 16:9
+                            borderBottom: "1px solid " + theme.palette.divider,
+                            "&:hover": {
+                              opacity: 0.75,
+                            },
+                          }}
                           title={page.title}
                           image={
                             data.allImageSharp.edges.find(
@@ -112,11 +99,24 @@ export default function PageCards() {
                           }
                         />
                       </Link>
-                      <CardContent className={classes.cardContent}>
+                      <CardContent
+                        sx={{
+                          flexGrow: 1,
+                        }}
+                      >
                         <Typography gutterBottom variant="h5" component="h2">
-                          <Link className={classes.cardLink} to={page.route}>
+                          <StyledLink
+                            sx={{
+                              color: theme.palette.text.primary,
+                              textDecoration: "none",
+                              "&:hover": {
+                                textDecoration: "underline",
+                              },
+                            }}
+                            to={page.route}
+                          >
                             {page.title}
-                          </Link>
+                          </StyledLink>
                         </Typography>
                         <Typography>{page.description}</Typography>
                       </CardContent>

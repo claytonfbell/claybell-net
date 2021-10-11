@@ -1,32 +1,32 @@
+import { MDXProvider } from "@mdx-js/react"
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"
+import MenuIcon from "@mui/icons-material/Menu"
 import {
+  styled,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableRow,
-} from "@material-ui/core"
-import AppBar from "@material-ui/core/AppBar"
-import Box from "@material-ui/core/Box"
-import Container from "@material-ui/core/Container"
-import Drawer from "@material-ui/core/Drawer"
-import Grid from "@material-ui/core/Grid"
-import Hidden from "@material-ui/core/Hidden"
-import IconButton from "@material-ui/core/IconButton"
-import Link from "@material-ui/core/Link"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemText from "@material-ui/core/ListItemText"
-import Paper from "@material-ui/core/Paper"
-import makeStyles from "@material-ui/core/styles/makeStyles"
-import useTheme from "@material-ui/core/styles/useTheme"
-import Toolbar from "@material-ui/core/Toolbar"
-import Typography from "@material-ui/core/Typography"
-import useMediaQuery from "@material-ui/core/useMediaQuery"
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
-import MenuIcon from "@material-ui/icons/Menu"
-import { MDXProvider } from "@mdx-js/react"
+} from "@mui/material"
+import AppBar from "@mui/material/AppBar"
+import Box from "@mui/material/Box"
+import Container from "@mui/material/Container"
+import Drawer from "@mui/material/Drawer"
+import Grid from "@mui/material/Grid"
+import Hidden from "@mui/material/Hidden"
+import IconButton from "@mui/material/IconButton"
+import Link from "@mui/material/Link"
+import List from "@mui/material/List"
+import ListItem from "@mui/material/ListItem"
+import ListItemText from "@mui/material/ListItemText"
+import Paper from "@mui/material/Paper"
+import useTheme from "@mui/material/styles/useTheme"
+import Toolbar from "@mui/material/Toolbar"
+import Typography from "@mui/material/Typography"
+import useMediaQuery from "@mui/material/useMediaQuery"
 import { graphql, Link as GatsbyLink, StaticQuery } from "gatsby"
-import { useDarkMode } from "material-ui-pack"
+import { Spacer, useDarkMode } from "material-ui-pack"
 import React from "react"
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { vs2015 } from "react-syntax-highlighter/dist/esm/styles/hljs"
@@ -40,7 +40,6 @@ import Footer from "./Footer"
 import LayoutBase from "./LayoutBase"
 import SEOComponent from "./SEOComponent"
 import { useShowPrivate } from "./ShowPrivateProvider"
-import Spacer from "./Spacer"
 import TechItem from "./TechItem"
 
 const h1 = props => (
@@ -89,61 +88,7 @@ export const LayoutComponents = {
 
 const drawerWidth = 240
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex",
-  },
-
-  toolbarIcon: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    padding: "0 8px",
-    ...theme.mixins.toolbar,
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  menuButton: {
-    marginRight: 36,
-  },
-  title: {
-    flexGrow: 1,
-  },
-  drawerPaper: {
-    position: "relative",
-    whiteSpace: "nowrap",
-    width: drawerWidth,
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-
-  appBarSpacer: theme.mixins.toolbar,
-  content: {
-    flexGrow: 1,
-    height: "100vh",
-    overflow: "auto",
-  },
-  container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-    "& table": {
-      marginBottom: 24,
-    },
-  },
-  paper: {
-    padding: theme.spacing(2),
-    display: "flex",
-    overflow: "auto",
-    flexDirection: "column",
-  },
-}))
+const StyledMain = styled("main")``
 
 interface Data {
   allImageSharp: {
@@ -169,11 +114,9 @@ interface Props {
 }
 
 function LayoutContent(props: Props) {
-  const classes = useStyles()
-
   const theme = useTheme()
-  const isXsDown = useMediaQuery(theme.breakpoints.down("xs"))
-  const isSmDown = useMediaQuery(theme.breakpoints.down("sm"))
+  const isXsDown = useMediaQuery(theme.breakpoints.down("sm"))
+  const isSmDown = useMediaQuery(theme.breakpoints.down("md"))
   const isLgUp = useMediaQuery(theme.breakpoints.up("lg"))
 
   const [open, setOpen] = React.useState(false)
@@ -229,10 +172,20 @@ function LayoutContent(props: Props) {
               description={currentPage.description}
               imageSrc={imageSrc}
             />
-            <div className={classes.root}>
+            <Box
+              sx={{
+                display: "flex",
+              }}
+            >
               <AppBar
                 position="absolute"
-                className={classes.appBar}
+                sx={{
+                  zIndex: theme.zIndex.drawer + 1,
+                  transition: theme.transitions.create(["width", "margin"], {
+                    easing: theme.transitions.easing.sharp,
+                    duration: theme.transitions.duration.leavingScreen,
+                  }),
+                }}
                 color="default"
                 elevation={1}
               >
@@ -243,7 +196,9 @@ function LayoutContent(props: Props) {
                       color="inherit"
                       aria-label="open drawer"
                       onClick={handleDrawerOpen}
-                      className={classes.menuButton}
+                      sx={{
+                        marginRight: 36,
+                      }}
                     >
                       <MenuIcon />
                     </IconButton>
@@ -260,21 +215,37 @@ function LayoutContent(props: Props) {
 
               <Drawer
                 variant={!isSmDown ? "permanent" : "temporary"}
-                classes={{
-                  paper: classes.drawerPaper,
+                PaperProps={{
+                  sx: {
+                    position: "relative",
+                    whiteSpace: "nowrap",
+                    width: drawerWidth,
+                    transition: theme.transitions.create("width", {
+                      easing: theme.transitions.easing.sharp,
+                      duration: theme.transitions.duration.enteringScreen,
+                    }),
+                  },
                 }}
                 open={!isSmDown || open}
                 onBackdropClick={() => setOpen(false)}
               >
-                <div className={classes.toolbarIcon}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-end",
+                    padding: "0 8px",
+                    ...theme.mixins.toolbar,
+                  }}
+                >
                   <IconButton
                     onClick={handleDrawerClose}
                     aria-label="Hide Navigation"
                   >
                     <ChevronLeftIcon />
                   </IconButton>
-                </div>
-                <Hidden smDown>
+                </Box>
+                <Hidden mdDown>
                   <Spacer />
                 </Hidden>
                 <List>
@@ -294,9 +265,24 @@ function LayoutContent(props: Props) {
                     ))}
                 </List>
               </Drawer>
-              <main className={classes.content}>
-                <div className={classes.appBarSpacer} />
-                <Container maxWidth="lg" className={classes.container}>
+              <StyledMain
+                sx={{
+                  flexGrow: 1,
+                  height: "100vh",
+                  overflow: "auto",
+                }}
+              >
+                <Spacer size={8} />
+                <Container
+                  maxWidth="lg"
+                  sx={{
+                    paddingTop: theme.spacing(4),
+                    paddingBottom: theme.spacing(4),
+                    "& table": {
+                      marginBottom: 24,
+                    },
+                  }}
+                >
                   <Paper elevation={1}>
                     <Box padding={isLgUp ? 6 : isXsDown ? 2 : 4}>
                       <Grid container spacing={3}>
@@ -345,15 +331,15 @@ function LayoutContent(props: Props) {
                       </Grid>
                     </Box>
                   </Paper>
-                  <Hidden xsDown>
+                  <Hidden smDown>
                     <Footer />
                   </Hidden>
                   <Hidden smUp>
                     <Footer />
                   </Hidden>
                 </Container>
-              </main>
-            </div>
+              </StyledMain>
+            </Box>
           </>
         )
       }}

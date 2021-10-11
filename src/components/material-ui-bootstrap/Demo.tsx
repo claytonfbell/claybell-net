@@ -1,5 +1,5 @@
-import { Grid } from "@material-ui/core"
-import StarIcon from "@material-ui/icons/Star"
+import StarIcon from "@mui/icons-material/Star"
+import { Grid } from "@mui/material"
 import {
   Alert,
   bootstrapColors,

@@ -1,12 +1,15 @@
-import Box from "@material-ui/core/Box"
-import Dialog from "@material-ui/core/Dialog"
-import DialogContent from "@material-ui/core/DialogContent"
-import Grid from "@material-ui/core/Grid"
-import IconButton from "@material-ui/core/IconButton"
-import { Theme } from "@material-ui/core/styles/createMuiTheme"
-import makeStyles from "@material-ui/core/styles/makeStyles"
-import withStyles from "@material-ui/core/styles/withStyles"
-import Tooltip from "@material-ui/core/Tooltip"
+import {
+  styled,
+  Tooltip,
+  tooltipClasses,
+  TooltipProps,
+  useTheme,
+} from "@mui/material"
+import Box from "@mui/material/Box"
+import Dialog from "@mui/material/Dialog"
+import DialogContent from "@mui/material/DialogContent"
+import Grid from "@mui/material/Grid"
+import IconButton from "@mui/material/IconButton"
 import { Button } from "material-ui-bootstrap"
 import { useHandleState } from "material-ui-pack"
 import React from "react"
@@ -14,8 +17,10 @@ import ReactMarkdown from "react-markdown"
 import { Technology } from "../technologies"
 import Spacer from "./Spacer"
 
-const HtmlTooltip = withStyles((theme: Theme) => ({
-  tooltip: {
+const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
     backgroundColor: "#222222",
     color: "white",
     maxWidth: 220,
@@ -30,11 +35,11 @@ const HtmlTooltip = withStyles((theme: Theme) => ({
       color: theme.palette.primary.main,
     },
   },
-  arrow: {
+  [`& .${tooltipClasses.arrow}`]: {
     color: "#222222",
     fontSize: theme.typography.pxToRem(18),
   },
-}))(Tooltip)
+}))
 
 interface Props {
   technology: Technology
@@ -54,22 +59,12 @@ interface Props {
 }
 export default function TechItem(props: Props) {
   const t = props.technology
-  const classes = makeStyles((theme: Theme) => ({
-    root: {
-      "& h1": {
-        fontSize: 18,
-      },
-      "& a": {
-        color: theme.palette.primary.main,
-      },
-    },
-  }))()
+  const theme = useTheme()
 
   const [open, handleOpen] = useHandleState<boolean>(false)
   return (
     <>
       <HtmlTooltip
-        interactive
         title={<TechContent technology={t} />}
         placement={props.placement}
         arrow
@@ -80,7 +75,16 @@ export default function TechItem(props: Props) {
       </HtmlTooltip>
       <Dialog open={open} onClose={handleOpen(false)} fullWidth maxWidth="xs">
         <DialogContent>
-          <Box className={classes.root}>
+          <Box
+            sx={{
+              "& h1": {
+                fontSize: 18,
+              },
+              "& a": {
+                color: theme.palette.primary.main,
+              },
+            }}
+          >
             <TechContent technology={t} />
           </Box>
           <Spacer size="large" />

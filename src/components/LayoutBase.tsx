@@ -1,5 +1,5 @@
-import { ThemeProvider } from "@material-ui/core"
-import CssBaseline from "@material-ui/core/CssBaseline"
+import { ThemeProvider } from "@mui/material"
+import CssBaseline from "@mui/material/CssBaseline"
 import { DarkModeProvider, useDarkMode } from "material-ui-pack"
 import React from "react"
 import { ShowPrivateProvider } from "./ShowPrivateProvider"

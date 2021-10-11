@@ -1,64 +1,65 @@
-import Loadable from "@loadable/component"
-import { Grid, Hidden, Link, Typography } from "@material-ui/core"
-import makeStyles from "@material-ui/core/styles/makeStyles"
-import EmailIcon from "@material-ui/icons/Email"
-import PhoneIcon from "@material-ui/icons/Phone"
-import DownloadIcon from "@material-ui/icons/PictureAsPdf"
-import { Button } from "material-ui-bootstrap"
+import EmailIcon from "@mui/icons-material/Email"
+import PhoneIcon from "@mui/icons-material/Phone"
+import { Grid, Link, styled, Typography, useTheme } from "@mui/material"
 import React from "react"
 import Layout, { LayoutComponents } from "../components/Layout"
 import Spacer from "../components/Spacer"
 import TechStack from "../components/TechStack"
 import { employment } from "../employment"
 
-const TechStackPrint = Loadable(() => import("../components/TechStackPrint"))
+// const TechStackPrint = Loadable(() => import("../components/TechStackPrint"))
 
-const useStyles = makeStyles(theme => ({
-  contactLink: {
-    marginLeft: theme.spacing(2),
-    textDecoration: "none",
-    color: theme.palette.text.primary,
-  },
-}))
+const StyledLink = styled(Link)``
 
 function ResumeContent() {
-  const classes = useStyles()
+  const theme = useTheme()
   return (
     <>
-      <Grid container justify="space-between">
+      <Grid container justifyContent="space-between">
         <Grid item>
           <LayoutComponents.h1>Clayton Bell</LayoutComponents.h1>
           <Typography>
             <PhoneIcon fontSize="inherit" />
-            <Link className={classes.contactLink} href="tel:(971) 285-5666">
+            <StyledLink
+              sx={{
+                marginLeft: theme.spacing(2),
+                textDecoration: "none",
+                color: theme.palette.text.primary,
+              }}
+              href="tel:(971) 285-5666"
+            >
               (971) 285-5666
-            </Link>
+            </StyledLink>
           </Typography>
           <Typography>
             <EmailIcon fontSize="inherit" />
-            <Link
-              className={classes.contactLink}
+            <StyledLink
+              sx={{
+                marginLeft: theme.spacing(2),
+                textDecoration: "none",
+                color: theme.palette.text.primary,
+              }}
               href="mailto: claytonfbell@gmail.com"
             >
               claytonfbell@gmail.com
-            </Link>
+            </StyledLink>
           </Typography>
         </Grid>
-        <Grid item>
+        {/* <Grid item>
           <Button
             href="/print"
             variant="contained"
             startIcon={<DownloadIcon />}
             color="primary"
           >
-            <Hidden xsDown>PDF Version</Hidden>
+            <Hidden smDown>PDF Version</Hidden>
             <Hidden smUp>PDF</Hidden>
           </Button>
-        </Grid>
+        </Grid> */}
       </Grid>
       <Spacer size="large" />
       <TechStack />
-      <TechStackPrint />
+      {/* <TechStackPrint /> */}
 
       {employment.map(e => (
         <>

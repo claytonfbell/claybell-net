@@ -1,4 +1,4 @@
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import { Box, Grid, Typography, useTheme } from "@mui/material"
 import html2canvas from "html2canvas"
 import { useStoredState } from "material-ui-pack"
 import React from "react"
@@ -7,26 +7,8 @@ import { technologies, TechnologyGroup } from "../technologies"
 import Spacer from "./Spacer"
 import TechItemPrint from "./TechItemPrint"
 
-const useStyles = makeStyles(theme => ({
-  container: {
-    position: "absolute",
-    top: -1000,
-  },
-  root: {
-    backgroundColor: "#eee",
-    marginBottom: theme.spacing(3),
-    padding: 24,
-    borderRadius: 5,
-    width: 1250,
-  },
-  title: {
-    fontSize: 18,
-    marginBottom: theme.spacing(1),
-  },
-}))
-
 export default function TechStackPrint() {
-  const classes = useStyles()
+  const theme = useTheme()
   const groups: TechnologyGroup[] = ["Front-End", "Backend", "DevOps"]
 
   const isReady = useTimeout(1000)
@@ -67,16 +49,33 @@ export default function TechStackPrint() {
   }
 
   return (
-    <div className={classes.container}>
+    <Box
+      sx={{
+        position: "absolute",
+        top: -1000,
+        left: -2000,
+      }}
+    >
       <div ref={myRef}>
-        <Box className={classes.root}>
+        <Box
+          sx={{
+            backgroundColor: "#eee",
+            marginBottom: theme.spacing(3),
+            padding: 24,
+            borderRadius: 5,
+            width: 1250,
+          }}
+        >
           <Grid container spacing={1}>
             {groups.map(group => (
               <React.Fragment key={group}>
                 <Grid item xs={12}>
                   <Typography
                     component="h2"
-                    className={classes.title}
+                    sx={{
+                      fontSize: 18,
+                      marginBottom: theme.spacing(1),
+                    }}
                     color="primary"
                   >
                     {group}
@@ -96,6 +95,6 @@ export default function TechStackPrint() {
       </div>
       <Spacer />
       {imageData !== null && <img src={imageData} />}
-    </div>
+    </Box>
   )
 }

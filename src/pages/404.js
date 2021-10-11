@@ -1,4 +1,4 @@
-import { Container } from "@material-ui/core"
+import { Container } from "@mui/material"
 import React from "react"
 import LayoutBase from "../components/LayoutBase"
 import SEOComponent from "../components/SEOComponent"
