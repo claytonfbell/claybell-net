@@ -21,7 +21,7 @@
     "gatsby-plugin-google-gtag": "^3.9.0",
     "gatsby-plugin-manifest": "^2.4.0",
     "gatsby-plugin-material-ui": "^2.1.8",
-    "gatsby-plugin-mdx": "^1.2.0",
+    "gatsby-plugin-mdx": "^2.14.1",
     "gatsby-plugin-offline": "^2.2.10",
     "gatsby-plugin-react-helmet": "^3.3.0",
     "gatsby-plugin-sharp": "^2.6.0",
